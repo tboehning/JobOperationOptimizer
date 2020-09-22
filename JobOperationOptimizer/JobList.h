@@ -14,6 +14,7 @@ public:
 	void append_job(const Job &job);
 
 	std::vector<Job> get_jobs() const;
+	int get_size() const;
 
 	void print_jobs() const;
 

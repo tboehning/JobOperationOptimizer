@@ -75,7 +75,7 @@ int Permutation::calculate_tool_changes() const
 
 double Permutation::calculate_toolpath_from_transitions() const
 {
-	int lengthToolPath = 0.0;
+	double lengthToolPath = 0.0;
 	
 	for (int i = 1; i < currentIndex; i++) {
 		const int INDEX_PREVIOUS_JOB = i - 1;

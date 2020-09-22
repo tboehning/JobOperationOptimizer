@@ -39,6 +39,9 @@
     <ClCompile Include="Permutation.cpp">
       <Filter>Quelldateien\Data Structures</Filter>
     </ClCompile>
+    <ClCompile Include="JobDependencies.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -57,6 +60,9 @@
       <Filter>Headerdateien\Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="Misc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="JobDependencies.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

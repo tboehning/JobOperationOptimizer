@@ -13,6 +13,11 @@ std::vector<Job> JobList::get_jobs() const
 	return jobs;
 }
 
+int JobList::get_size() const
+{
+	return jobs.size();
+}
+
 void JobList::print_jobs() const
 {
 	printf("*** JobList ***\n");

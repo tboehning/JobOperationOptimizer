@@ -14,7 +14,14 @@ int main() {
 	Misc::fill_third_job(job3);
 	Misc::fill_fourth_job(job4);
 
+	job2.append_job_dependency(job1);
+	job3.append_job_dependency(job1);
+	job3.append_job_dependency(job2);
+	job4.append_job_dependency(job1);
+	job4.append_job_dependency(job2);
+
 	// Real Correct Order for toolchanges: 1.1 -> 2.1 -> 3.1 -> 4.1 -> 3.2 -> 4.2
+	// Tool Changes: 7 Length 907.25
 
 
 	// Length: 0.0, Changes 4
