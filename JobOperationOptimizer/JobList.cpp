@@ -34,6 +34,11 @@ double JobList::calculate_toolpath_from_transitions() const
 	return lengthToolPath;
 }
 
+std::vector<Job> JobList::get_jobs() const
+{
+	return jobs;
+}
+
 void JobList::print_information() const
 {
 	const int NUMBER_OF_TOOL_CHANGES = calculate_tool_changes();
@@ -53,8 +58,8 @@ int JobList::calculate_tool_changes_between_jobs() const
 	for (int i = 1; i < jobs.size(); i++) {
 		const int INDEX_PREVIOUS_JOB = i - 1;
 
-		const int TOOL_NUMBER_LAST_OPERATION_PREVIOUS_JOB = jobs[INDEX_PREVIOUS_JOB].operations.back().toolNumber;
-		const int TOOL_NUMBER_FIRST_OPERATION_CURRENT_JOB = jobs[i].operations.front().toolNumber;
+		const int TOOL_NUMBER_LAST_OPERATION_PREVIOUS_JOB = jobs[INDEX_PREVIOUS_JOB].get_operations().back().toolNumber;
+		const int TOOL_NUMBER_FIRST_OPERATION_CURRENT_JOB = jobs[i].get_operations().front().toolNumber;
 
 		if (TOOL_NUMBER_LAST_OPERATION_PREVIOUS_JOB == TOOL_NUMBER_FIRST_OPERATION_CURRENT_JOB) {
 			numberOfToolChangesBetweenJobs += 1;
@@ -71,8 +76,8 @@ double JobList::calculate_toolpath_from_transitions_between_jobs() const
 	for (int i = 1; i < jobs.size(); i++) {
 		const int INDEX_PREVIOUS_JOB = i - 1;
 
-		const Vector END_POSITION_LAST_OPERATION_PREVIOUS_JOB = jobs[INDEX_PREVIOUS_JOB].operations.back().endPosition;
-		const Vector START_POSITION_FIRST_OPERATION_CURRENT_JOB = jobs[i].operations.front().startPosition;
+		const Vector END_POSITION_LAST_OPERATION_PREVIOUS_JOB = jobs[INDEX_PREVIOUS_JOB].get_operations().back().endPosition;
+		const Vector START_POSITION_FIRST_OPERATION_CURRENT_JOB = jobs[i].get_operations().front().startPosition;
 
 		lengthToolPathBetweenJobs +=
 			END_POSITION_LAST_OPERATION_PREVIOUS_JOB.calculate_distance_to_vector(START_POSITION_FIRST_OPERATION_CURRENT_JOB);

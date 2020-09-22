@@ -1,4 +1,5 @@
 #include "JobList.h"
+#include "Permutation.h"
 
 void fill_first_job(Job &job) {
 	job.append_operation(JobOperation(1, 1, 1, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
@@ -56,6 +57,10 @@ int main() {
 	joblist.append_job(job3);
 
 	joblist.print_information();
+
+	Permutation p(joblist);
+
+	p.print_permutation();
 
 	return 0;
 }

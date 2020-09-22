@@ -16,6 +16,8 @@ public:
 	int calculate_tool_changes() const;
 	double calculate_toolpath_from_transitions() const;
 
+	std::vector<Job> get_jobs() const;
+
 	void print_information() const;
 
 private:

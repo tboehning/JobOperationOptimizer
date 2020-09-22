@@ -143,12 +143,14 @@
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

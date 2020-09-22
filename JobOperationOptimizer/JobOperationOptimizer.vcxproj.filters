@@ -36,6 +36,9 @@
     <ClCompile Include="Vector.cpp">
       <Filter>Quelldateien\Data Structures</Filter>
     </ClCompile>
+    <ClCompile Include="Permutation.cpp">
+      <Filter>Quelldateien\Data Structures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -48,6 +51,9 @@
       <Filter>Headerdateien\Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Headerdateien\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Permutation.h">
       <Filter>Headerdateien\Data Structures</Filter>
     </ClInclude>
   </ItemGroup>

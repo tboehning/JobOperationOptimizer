@@ -34,7 +34,7 @@ double Job::calculate_toolpath_from_transitions() const
 	return lengthToolpath;
 }
 
-std::vector<JobOperation> Job::get_operations()
+std::vector<JobOperation> Job::get_operations() const
 {
 	return operations;
 }
