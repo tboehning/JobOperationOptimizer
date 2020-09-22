@@ -77,17 +77,17 @@ double Permutation::calculate_toolpath_from_transitions() const
 {
 	int lengthToolPath = 0.0;
 	
-		for (int i = 1; i < currentIndex; i++) {
-			const int INDEX_PREVIOUS_JOB = i - 1;
+	for (int i = 1; i < currentIndex; i++) {
+		const int INDEX_PREVIOUS_JOB = i - 1;
 	
-			const Vector END_POSITION_PREVIOUS_OPERATION = operations[INDEX_PREVIOUS_JOB].endPosition;
-			const Vector START_POSITION_CURRENT_OPERATION = operations[i].startPosition;
+		const Vector END_POSITION_PREVIOUS_OPERATION = operations[INDEX_PREVIOUS_JOB].endPosition;
+		const Vector START_POSITION_CURRENT_OPERATION = operations[i].startPosition;
 	
-			lengthToolPath +=
-				END_POSITION_PREVIOUS_OPERATION.calculate_distance_to_vector(START_POSITION_CURRENT_OPERATION);
-		}
+		lengthToolPath +=
+			END_POSITION_PREVIOUS_OPERATION.calculate_distance_to_vector(START_POSITION_CURRENT_OPERATION);
+	}
 	
-		return lengthToolPath;
+	return lengthToolPath;
 }
 
 int Permutation::calculate_amount_of_operations(const JobList &joblist) const
@@ -120,10 +120,7 @@ void Permutation::print_permutation() const
 	printf("*** Permutation ***\n");
 
 	for (int i = 0; i < currentIndex; i++) {
-		printf("(%d ; %d) ->  %d ; %.2f, %.2f, %.2f ;; %.2f, %.2f, %.2f\n",
-			operations[i].jobNumber, operations[i].operationNumber, operations[i].toolNumber,
-			operations[i].startPosition.x, operations[i].startPosition.y, operations[i].startPosition.z,
-			operations[i].endPosition.x, operations[i].endPosition.y, operations[i].endPosition.z);
+		operations[i].print_operation();
 	}
 
 	printf("Tool Changes: %d, Toolpath length: %.2f\n", TOOL_CHANGES, TOOL_PATH);

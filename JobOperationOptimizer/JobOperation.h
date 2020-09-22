@@ -1,11 +1,15 @@
 #ifndef JOBOPERATION_H_
 #define JOBOPERATION_H_
 
+#include <string>
+#include <iostream>
+
 #include "Vector.h"
 
 class JobOperation
 {
 public:
+	std::string name;
 	int jobNumber;
 	int operationNumber;
 	int toolNumber;
@@ -13,9 +17,12 @@ public:
 	Vector endPosition;
 
 	JobOperation();
-	JobOperation(const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition);
-	void operator=(const JobOperation &task);
-	bool operator<(const JobOperation &task) const;
+	JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition);
+
+	void operator=(const JobOperation &operation);
+	bool operator<(const JobOperation &operation) const;
+
+	void print_operation() const;
 };
 
 #endif

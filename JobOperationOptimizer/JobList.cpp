@@ -18,7 +18,6 @@ void JobList::print_jobs() const
 	printf("*** JobList ***\n");
 
 	for (auto const &job : jobs) {
-		printf("Job\n");
 		job.print_job();
 	}
 	printf("\n");

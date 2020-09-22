@@ -1,6 +1,7 @@
 #include "Job.h"
 
-Job::Job()
+Job::Job(const int &number, const std::string &name) :
+	number(number), name(name)
 { }
 
 void Job::append_operation(const JobOperation &operation)
@@ -15,10 +16,9 @@ std::vector<JobOperation> Job::get_operations() const
 
 void Job::print_job() const
 {
+	std::cout << "Job #" << number << " " << name << "\n";
+
 	for (const auto &operation : operations) {
-		printf("   (%d ; %d) ->  %d ; %.2f, %.2f, %.2f ;; %.2f, %.2f, %.2f\n",
-			operation.jobNumber, operation.operationNumber, operation.toolNumber,
-			operation.startPosition.x, operation.startPosition.y, operation.startPosition.z,
-			operation.endPosition.x, operation.endPosition.y, operation.endPosition.z);
+		operation.print_operation();
 	}
 }

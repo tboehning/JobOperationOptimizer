@@ -4,25 +4,35 @@ JobOperation::JobOperation() :
 	jobNumber(0), operationNumber(0), toolNumber(0), startPosition(Vector(0.0, 0.0, 0.0)), endPosition(Vector(0.0, 0.0, 0.0))
 { }
 
-JobOperation::JobOperation(const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition) :
-	jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
+JobOperation::JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition) :
+	name(name), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
 { }
 
-void JobOperation::operator=(const JobOperation &task)
+void JobOperation::operator=(const JobOperation &operation)
 {
-	this->jobNumber = task.jobNumber;
-	this->operationNumber = task.operationNumber;
-	this->toolNumber = task.toolNumber;
-	this->startPosition = task.startPosition;
-	this->endPosition = task.endPosition;
+	this->name = operation.name;
+	this->jobNumber = operation.jobNumber;
+	this->operationNumber = operation.operationNumber;
+	this->toolNumber = operation.toolNumber;
+	this->startPosition = operation.startPosition;
+	this->endPosition = operation.endPosition;
 }
 
-bool JobOperation::operator<(const JobOperation &task) const
+bool JobOperation::operator<(const JobOperation &operation) const
 {
-	if (jobNumber == task.jobNumber) {
-		return operationNumber < task.operationNumber;
+	if (jobNumber == operation.jobNumber) {
+		return operationNumber < operation.operationNumber;
 	}
 	else {
-		return jobNumber < task.jobNumber;
+		return jobNumber < operation.jobNumber;
 	}
+}
+
+void JobOperation::print_operation() const
+{
+	std::cout << "   Op. " << name << " --> ";
+	printf("(%d ; %d) ->  %d ; %.2f, %.2f, %.2f ;; %.2f, %.2f, %.2f\n",
+		jobNumber, operationNumber, toolNumber,
+		startPosition.x, startPosition.y, startPosition.z,
+		endPosition.x, endPosition.y, endPosition.z);
 }
