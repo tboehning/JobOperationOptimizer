@@ -51,14 +51,14 @@ int main() {
 	fill_second_job(job2);
 	fill_third_job(job3);
 
-	JobList joblist;
-	joblist.append_job(job1);
-	joblist.append_job(job2);
-	joblist.append_job(job3);
+	JobList allJobs;
+	allJobs.append_job(job1);
+	allJobs.append_job(job2);
+	allJobs.append_job(job3);
 
-	joblist.print_information();
+	allJobs.print_jobs();
 
-	Permutation p(joblist);
+	Permutation p(allJobs);
 
 	p.print_permutation();
 
