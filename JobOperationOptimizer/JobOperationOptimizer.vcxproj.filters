@@ -56,5 +56,8 @@
     <ClInclude Include="Permutation.h">
       <Filter>Headerdateien\Data Structures</Filter>
     </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -150,6 +150,7 @@
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
+    <ClInclude Include="Misc.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
