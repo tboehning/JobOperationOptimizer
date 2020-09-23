@@ -19,6 +19,24 @@ double Vector::calculate_distance_to_vector(const Vector &secondvector) const
 	return LENGTH_TOTAL;
 }
 
+bool Vector::operator==(const Vector &vector) const
+{
+	if (abs(this->x - vector.x) < MAX_DELTA
+		&& abs(this->y - vector.y) < MAX_DELTA
+		&& abs(this->z - vector.z) < MAX_DELTA) {
+		return true;
+	}
+
+	return false;
+}
+
+void Vector::operator=(const Vector &vector)
+{
+	this->x = vector.x;
+	this->y = vector.y;
+	this->z = vector.z;
+}
+
 Vector Vector::operator-(const Vector &vector) const
 {
 	const double DELTA_X = this->x - vector.x;

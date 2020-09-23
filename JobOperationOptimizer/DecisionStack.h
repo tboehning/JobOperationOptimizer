@@ -12,8 +12,11 @@ class DecisionStack
 public:
 	DecisionStack(const Job &job);
 
-	std::stack<JobOperation> get_decisions() const;
+	void pop_top();
 
+	JobOperation get_top() const;
+	std::stack<JobOperation> get_decisions() const;
+	
 	void print_decisions() const;
 
 private:

@@ -8,6 +8,20 @@ JobOperation::JobOperation(const std::string &name, const int &jobnumber, const 
 	name(name), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
 { }
 
+bool JobOperation::operator==(const JobOperation &operation) const
+{
+	if (this->name == operation.name 
+		&& this->jobNumber == operation.jobNumber 
+		&& this->operationNumber == operation.operationNumber 
+		&& this->toolNumber == operation.toolNumber 
+		&& this->startPosition == operation.startPosition 
+		&& this->endPosition == operation.endPosition) {
+		return true;
+	}
+
+	return false;
+}
+
 void JobOperation::operator=(const JobOperation &operation)
 {
 	this->name = operation.name;

@@ -19,6 +19,7 @@ public:
 	JobOperation();
 	JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition);
 
+	bool operator==(const JobOperation &operation) const;
 	void operator=(const JobOperation &operation);
 	bool operator<(const JobOperation &operation) const;
 

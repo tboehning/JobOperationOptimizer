@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DecisionStack.cpp" />
+    <ClCompile Include="DecisionStackList.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecisionStack.h" />
+    <ClInclude Include="DecisionStackList.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
