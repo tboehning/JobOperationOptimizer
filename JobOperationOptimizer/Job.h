@@ -8,8 +8,6 @@
 
 #include "JobOperation.h"
 
-class JobDependencies;
-
 class Job
 {
 public:
@@ -19,17 +17,17 @@ public:
 	Job(const int &number, const std::string &name);
 
 	void append_operation(const JobOperation &operation);
-	void append_job_dependency(const Job &dependency);
+	void append_dependency(const Job &dependency);
 
+	int get_size() const;
 	std::vector<JobOperation> get_operations() const;
-	JobDependencies* get_dependencies() const;
+	std::vector<Job> get_dependencies() const;
 
 	void print_job() const;
 
 private:
 	std::vector<JobOperation> operations;
-
-	JobDependencies *dependencies;
+	std::vector<Job> dependencies;
 };
 
 #endif

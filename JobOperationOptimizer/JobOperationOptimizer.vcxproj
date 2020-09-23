@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DecisionStack.cpp" />
     <ClCompile Include="Job.cpp" />
-    <ClCompile Include="JobDependencies.cpp" />
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,8 +148,8 @@
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DecisionStack.h" />
     <ClInclude Include="Job.h" />
-    <ClInclude Include="JobDependencies.h" />
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
     <ClInclude Include="Misc.h" />

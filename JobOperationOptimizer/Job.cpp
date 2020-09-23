@@ -1,20 +1,22 @@
 #include "Job.h"
-#include "JobDependencies.h"
 
 Job::Job(const int &number, const std::string &name) :
 	number(number), name(name)
-{ 
-	dependencies = new JobDependencies;
-}
+{ }
 
 void Job::append_operation(const JobOperation &operation)
 {
 	operations.push_back(operation);
 }
 
-void Job::append_job_dependency(const Job &dependency)
+void Job::append_dependency(const Job &dependency)
 {
-	dependencies->dependencies.append_job(dependency);
+	dependencies.push_back(dependency);
+}
+
+int Job::get_size() const
+{
+	return operations.size();
 }
 
 std::vector<JobOperation> Job::get_operations() const
@@ -22,7 +24,7 @@ std::vector<JobOperation> Job::get_operations() const
 	return operations;
 }
 
-JobDependencies* Job::get_dependencies() const
+std::vector<Job> Job::get_dependencies() const
 {
 	return dependencies;
 }
@@ -35,7 +37,7 @@ void Job::print_job() const
 		operation.print_operation();
 	}
 
-	for (const auto &dependency : dependencies->dependencies.get_jobs()) {
+	for (const auto &dependency : dependencies) {
 		std::cout << "   +++ Dependency: #" << dependency.number << " " << dependency.name << "\n";
 	}
 }

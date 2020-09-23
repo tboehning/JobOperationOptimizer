@@ -17,16 +17,16 @@ namespace Misc {
 		const int JOB_NUMBER = job.number;
 
 		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren 1", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren 2", JOB_NUMBER, 2, 5, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Gewindebohren Grob", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Gewindebohren Fein", JOB_NUMBER, 2, 5, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
 	}
 
 	void fill_fourth_job(Job &job) {
 		const int JOB_NUMBER = job.number;
 
 		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren 1", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren 2", JOB_NUMBER, 2, 6, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Gewindebohren Grob", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Gewindebohren Fein", JOB_NUMBER, 2, 6, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
 	}
 
 	void fill_first_job_length_zero(Job &job) {

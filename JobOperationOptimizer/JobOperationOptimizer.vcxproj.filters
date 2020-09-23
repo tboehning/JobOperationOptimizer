@@ -19,6 +19,12 @@
     <Filter Include="Quelldateien\Data Structures">
       <UniqueIdentifier>{40bc07a6-4287-48a1-a39c-8585a6d53708}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Optimization">
+      <UniqueIdentifier>{2e5d69dc-07fb-40ee-9a6d-48e9658f0c1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Optimization">
+      <UniqueIdentifier>{a3b557d5-5bc3-4538-b14f-11068c951b78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,8 +45,8 @@
     <ClCompile Include="Permutation.cpp">
       <Filter>Quelldateien\Data Structures</Filter>
     </ClCompile>
-    <ClCompile Include="JobDependencies.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="DecisionStack.cpp">
+      <Filter>Quelldateien\Optimization</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,8 +68,8 @@
     <ClInclude Include="Misc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="JobDependencies.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="DecisionStack.h">
+      <Filter>Headerdateien\Optimization</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
