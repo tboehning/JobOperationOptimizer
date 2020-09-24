@@ -2,14 +2,14 @@
 
 void DecisionStackList::append_decision_stack(const DecisionStack &stack)
 {
-	decisionStacks.push_back(stack);
+	decisionStacksInitial.push_back(stack);
 }
 
 std::vector<JobOperation> DecisionStackList::calculate_current_decision_set() const
 {
 	std::vector<JobOperation> decisionSet;
 
-	for (const auto &decisionStack : decisionStacks) {
+	for (const auto &decisionStack : decisionStacksInitial) {
 		if (!decisionStack.get_decisions().empty()) {
 			if (std::find(decisionSet.begin(), decisionSet.end(), decisionStack.get_top()) == decisionSet.end()) {
 				decisionSet.push_back(decisionStack.get_top());
@@ -24,7 +24,7 @@ void DecisionStackList::make_decision(const JobOperation &decision)
 {
 	made_decisions.push_back(decision);
 
-	for (auto &stack : decisionStacks) {
+	for (auto &stack : decisionStacksInitial) {
 		if (!stack.get_decisions().empty()) {
 			if (stack.get_top() == decision) {
 				stack.pop_top();
@@ -37,12 +37,12 @@ void DecisionStackList::make_decision(const JobOperation &decision)
 
 std::vector<DecisionStack> DecisionStackList::get_decision_stacks() const
 {
-	return decisionStacks;
+	return decisionStacksInitial;
 }
 
 void DecisionStackList::print_decision_stacks() const
 {
-	for (const auto &decisionstack : decisionStacks) {
+	for (const auto &decisionstack : decisionStacksInitial) {
 		decisionstack.print_decisions();
 	}
 }

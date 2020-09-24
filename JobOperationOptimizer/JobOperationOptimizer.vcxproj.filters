@@ -51,6 +51,9 @@
     <ClCompile Include="DecisionStackList.cpp">
       <Filter>Quelldateien\Optimization</Filter>
     </ClCompile>
+    <ClCompile Include="Optimizer.cpp">
+      <Filter>Quelldateien\Optimization</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -75,6 +78,9 @@
       <Filter>Headerdateien\Optimization</Filter>
     </ClInclude>
     <ClInclude Include="DecisionStackList.h">
+      <Filter>Headerdateien\Optimization</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimizer.h">
       <Filter>Headerdateien\Optimization</Filter>
     </ClInclude>
   </ItemGroup>

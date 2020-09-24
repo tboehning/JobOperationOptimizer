@@ -10,23 +10,23 @@ namespace Misc {
 	void fill_second_job(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Schlichten", JOB_NUMBER, 1, 2, Vector(100.3, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Schlichten", JOB_NUMBER, 1, 2, Vector(100.3, 0.0, 0.0), Vector(42.12, 126.53, 641.5)));
 	}
 
 	void fill_third_job(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren Grob", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren Fein", JOB_NUMBER, 2, 5, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(54.1, 1.64, 12.54), Vector(65.1, 0.0, 421.0)));
+		job.append_operation(JobOperation("Senken", JOB_NUMBER, 2, 4, Vector(54.1, 1.64, 12.54), Vector(52.2, 567.1, 65.1)));
+		job.append_operation(JobOperation("Gewindebohren", JOB_NUMBER, 2, 5, Vector(54.1, 1.64, 12.54), Vector(12.67, 75.1, 89.1)));
 	}
 
 	void fill_fourth_job(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren Grob", JOB_NUMBER, 2, 4, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
-		job.append_operation(JobOperation("Gewindebohren Fein", JOB_NUMBER, 2, 6, Vector(30.12, 10.1, 200.3), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Bohren", JOB_NUMBER, 1, 3, Vector(321.2, 789.1, 437.1), Vector(853.123, 123.1, 588.9)));
+		job.append_operation(JobOperation("Senken", JOB_NUMBER, 2, 4, Vector(321.2, 789.1, 437.1), Vector(534.12, 122.0, 566.64)));
+		job.append_operation(JobOperation("Gewindebohren", JOB_NUMBER, 2, 6, Vector(321.2, 789.1, 437.1), Vector(104.13, 172.0, 51.64)));
 	}
 
 	void fill_first_job_length_zero(Job &job) {

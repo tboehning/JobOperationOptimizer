@@ -19,7 +19,7 @@ public:
 	void print_decision_stacks() const;
 
 private:
-	std::vector<DecisionStack> decisionStacks;
+	std::vector<DecisionStack> decisionStacksInitial;
 	std::vector<JobOperation> made_decisions;
 
 	void pop_previous_decisions_from_stack(DecisionStack &decisionstack);
