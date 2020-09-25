@@ -1,6 +1,9 @@
 #ifndef OPTIMIZER_H_
 #define OPTIMIZER_H_
 
+#include <thread>
+#include <future>
+
 #include "JobList.h"
 #include "DecisionStackList.h"
 #include "Permutation.h"
@@ -13,11 +16,14 @@ public:
 	void optimize_toolchanges();
 	void optimize_transition_length();
 
+	void append_joblist(const JobList &list);
 	void append_job(const Job &job);
 
 	JobList get_jobs() const;
 
 	void print_decision_stacks() const;
+
+	int test = 0;
 
 private:
 	JobList jobList;

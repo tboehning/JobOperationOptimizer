@@ -19,7 +19,7 @@ public:
 	void append_operation(const JobOperation &operation);
 	void append_dependency(const Job &dependency);
 
-	int get_size() const;
+	int get_size_operations() const;
 	std::vector<JobOperation> get_operations() const;
 	std::vector<Job> get_dependencies() const;
 

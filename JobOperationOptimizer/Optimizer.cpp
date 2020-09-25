@@ -84,8 +84,13 @@ void Optimizer::check_current_leaf_toolchanges(const Permutation &permutation)
 
 void Optimizer::check_current_leaf_length(const Permutation &permutation)
 {
+	//auto future_t1 = std::async(permutation.calculate_tool_changes());
+	//std::thread t1(permutation.calculate_tool_changes());
+	
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
+
+	test += 1;
 
 	if (LENGTH_TOOL_TRANSITIONS < optimalLengthToolTransitions) {
 		permutation.print_permutation();
@@ -99,6 +104,13 @@ void Optimizer::check_current_leaf_length(const Permutation &permutation)
 
 			optimalAmountOfToolChanges = AMOUNT_TOOL_CHANGES;
 		}
+	}
+}
+
+void Optimizer::append_joblist(const JobList &list)
+{
+	for (const auto &job : list.get_jobs()) {
+		append_job(job);
 	}
 }
 
@@ -119,5 +131,3 @@ void Optimizer::print_decision_stacks() const
 {
 	decisionStacksInitial.print_decision_stacks();
 }
-
-
