@@ -10,15 +10,14 @@ public:
 	double y;
 	double z;
 
-	Vector();
 	Vector(const double &x, const double &y, const double &z);
 
-	double calculate_distance_to_vector(const Vector &secondvector) const;
+	double calculate_distance_to_vector(const Vector &vector) const;
 	bool operator==(const Vector &vector) const;
 	void operator=(const Vector &vector);
-	Vector operator-(const Vector &vector) const;
+
 private:
-	const double MAX_DELTA = 0.01;
+	const double MAX_DELTA_FOR_EQUALITY = 0.01;
 };
 
 #endif

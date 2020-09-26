@@ -23,7 +23,7 @@ JobOperation DecisionStack::get_top() const
 
 void DecisionStack::append_operations_from_job(const Job &job)
 {
-	for (int i = job.get_size_operations() - 1; i >= 0; i--) {
+	for (int i = job.get_amount_of_operations() - 1; i >= 0; i--) {
 		decisions.push(job.get_operations()[i]);
 	}
 }

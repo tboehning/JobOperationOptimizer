@@ -13,7 +13,7 @@ std::vector<Job> JobList::get_jobs() const
 	return jobs;
 }
 
-int JobList::get_size_operations() const
+int JobList::get_amount_of_operations() const
 {
 	return jobs.size();
 }

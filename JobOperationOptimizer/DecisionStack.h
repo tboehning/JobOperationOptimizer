@@ -4,8 +4,6 @@
 #include <stack>
 
 #include "JobList.h"
-#include "Job.h"
-#include "JobOperation.h"
 
 class DecisionStack
 {

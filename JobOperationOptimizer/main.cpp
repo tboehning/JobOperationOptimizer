@@ -66,23 +66,24 @@ int main() {
 	Optimizer optimizer;
 	optimizer.append_joblist(list1);
 	optimizer.append_joblist(list2);
+
 	//optimizer.append_job(job11);
 	//optimizer.append_job(job12);
 	//optimizer.append_job(job13);
 	//optimizer.append_job(job14);
 
-
-	//optimizer.print_decision_stacks();
+	auto start = std::chrono::high_resolution_clock::now();
 
 	optimizer.optimize_toolchanges();
+	//optimizer.optimize_transition_length();
 
-	/*auto start = std::chrono::high_resolution_clock::now();
-	optimizer.optimize_transition_length();
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;
 	std::cout << "Elapsed time: " << elapsed.count() << " s\n";
 
-	printf("NUMBER OF PERMUTATIONS CHECKED: %d\n", optimizer.test);*/
+	printf("NUMBER OF PERMUTATIONS CHECKED: %d\n", optimizer.test);
+
+	
 
 	
 

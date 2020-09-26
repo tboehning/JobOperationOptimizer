@@ -14,7 +14,7 @@ void Job::append_dependency(const Job &dependency)
 	dependencies.push_back(dependency);
 }
 
-int Job::get_size_operations() const
+int Job::get_amount_of_operations() const
 {
 	return operations.size();
 }
