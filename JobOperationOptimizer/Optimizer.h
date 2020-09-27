@@ -1,9 +1,6 @@
 #ifndef OPTIMIZER_H_
 #define OPTIMIZER_H_
 
-#include <thread>
-#include <future>
-
 #include "JobList.h"
 #include "DecisionStackList.h"
 #include "Permutation.h"
@@ -23,8 +20,6 @@ public:
 
 	void print_decision_stacks() const;
 
-	int test = 0;
-
 private:
 	JobList jobList;
 
@@ -33,11 +28,11 @@ private:
 	int optimalAmountOfToolChanges;
 	double optimalLengthToolTransitions;
 
-	void optimize_recursive_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation decision);
-	void optimize_recursive_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation decision);
+	void check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
+	void check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
 
-	void check_current_leaf_toolchanges(const Permutation &permutation);
-	void check_current_leaf_length(const Permutation &permutation);
+	void evaluate_leaf_toolchanges(const Permutation &permutation);
+	void evaluate_leaf_length(const Permutation &permutation);
 };
 
 #endif

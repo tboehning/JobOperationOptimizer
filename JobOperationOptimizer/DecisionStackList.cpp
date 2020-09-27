@@ -1,6 +1,6 @@
 #include "DecisionStackList.h"
 
-void DecisionStackList::append_decision_stack(const DecisionStack &stack)
+void DecisionStackList::append_decision_stack_initial(const DecisionStack &stack)
 {
 	decisionStacksInitial.push_back(stack);
 }
@@ -22,7 +22,7 @@ std::vector<JobOperation> DecisionStackList::calculate_current_decision_set() co
 
 void DecisionStackList::make_decision(const JobOperation &decision)
 {
-	made_decisions.push_back(decision);
+	previous_decisions.push_back(decision);
 
 	for (auto &stack : decisionStacksInitial) {
 		if (!stack.get_decisions().empty()) {
@@ -50,7 +50,7 @@ void DecisionStackList::print_decision_stacks() const
 void DecisionStackList::pop_previous_decisions_from_stack(DecisionStack &decisionstack)
 {
 	if (!decisionstack.get_decisions().empty()) {
-		while (std::find(made_decisions.begin(), made_decisions.end(), decisionstack.get_top()) != made_decisions.end()) {
+		while (std::find(previous_decisions.begin(), previous_decisions.end(), decisionstack.get_top()) != previous_decisions.end()) {
 			decisionstack.pop_top();
 		}
 	}

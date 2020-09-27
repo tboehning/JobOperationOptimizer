@@ -4,14 +4,14 @@
 #include <vector>
 
 #include "DecisionStack.h"
-#include "JobOperation.h"
 
 class DecisionStackList
 {
 public:
-	void append_decision_stack(const DecisionStack &stack);
+	void append_decision_stack_initial(const DecisionStack &stack);
 
 	std::vector<JobOperation> calculate_current_decision_set() const;
+
 	void make_decision(const JobOperation &decision);
 
 	std::vector<DecisionStack> get_decision_stacks() const;
@@ -20,7 +20,7 @@ public:
 
 private:
 	std::vector<DecisionStack> decisionStacksInitial;
-	std::vector<JobOperation> made_decisions;
+	std::vector<JobOperation> previous_decisions;
 
 	void pop_previous_decisions_from_stack(DecisionStack &decisionstack);
 };

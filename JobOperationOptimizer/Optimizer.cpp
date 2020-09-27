@@ -13,7 +13,7 @@ void Optimizer::optimize_toolchanges()
 	std::vector<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
 
 	for (const auto &decision : decisionSet) {
-		optimize_recursive_toolchanges(currentPermutation, decisionStacksInitial, decision);
+		check_node_toolchanges(currentPermutation, decisionStacksInitial, decision);
 	}
 }
 
@@ -24,11 +24,11 @@ void Optimizer::optimize_transition_length()
 	std::vector<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
 
 	for (const auto &decision : decisionSet) {
-		optimize_recursive_length(currentPermutation, decisionStacksInitial, decision);
+		check_node_length(currentPermutation, decisionStacksInitial, decision);
 	}
 }
 
-void Optimizer::optimize_recursive_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation decision)
+void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
@@ -36,16 +36,18 @@ void Optimizer::optimize_recursive_toolchanges(Permutation permutationparent, De
 	std::vector<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
 	if (decisionSet.empty()) {
-		check_current_leaf_toolchanges(permutationparent);
+		evaluate_leaf_toolchanges(permutationparent);
 	}
 	else {
-		for (const auto &decisionNew : decisionSet) {
-			optimize_recursive_toolchanges(permutationparent, currentDecisionStackList, decisionNew);
+		if (permutationparent.calculate_tool_changes() <= optimalAmountOfToolChanges) {
+			for (const auto &decisionNew : decisionSet) {
+				check_node_toolchanges(permutationparent, currentDecisionStackList, decisionNew);
+			}
 		}
 	}
 }
 
-void Optimizer::optimize_recursive_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation decision)
+void Optimizer::check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
@@ -53,16 +55,18 @@ void Optimizer::optimize_recursive_length(Permutation permutationparent, Decisio
 	std::vector<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
 	if (decisionSet.empty()) {
-		check_current_leaf_length(permutationparent);
+		evaluate_leaf_length(permutationparent);
 	}
 	else {
-		for (const auto &decisionNew : decisionSet) {
-			optimize_recursive_length(permutationparent, currentDecisionStackList, decisionNew);
+		if (permutationparent.calculate_toolpath_from_transitions() < optimalLengthToolTransitions) {
+			for (const auto &decisionNew : decisionSet) {
+				check_node_length(permutationparent, currentDecisionStackList, decisionNew);
+			}
 		}
 	}
 }
 
-void Optimizer::check_current_leaf_toolchanges(const Permutation &permutation)
+void Optimizer::evaluate_leaf_toolchanges(const Permutation &permutation)
 {
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
@@ -82,15 +86,10 @@ void Optimizer::check_current_leaf_toolchanges(const Permutation &permutation)
 	}
 }
 
-void Optimizer::check_current_leaf_length(const Permutation &permutation)
+void Optimizer::evaluate_leaf_length(const Permutation &permutation)
 {
-	//auto future_t1 = std::async(permutation.calculate_tool_changes());
-	//std::thread t1(permutation.calculate_tool_changes());
-	
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
-
-	test += 1;
 
 	if (LENGTH_TOOL_TRANSITIONS < optimalLengthToolTransitions) {
 		permutation.print_permutation();
@@ -119,7 +118,7 @@ void Optimizer::append_job(const Job &job)
 	jobList.append_job(job);
 
 	DecisionStack stack(job);
-	decisionStacksInitial.append_decision_stack(stack);
+	decisionStacksInitial.append_decision_stack_initial(stack);
 }
 
 JobList Optimizer::get_jobs() const

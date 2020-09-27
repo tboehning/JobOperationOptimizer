@@ -81,11 +81,5 @@ int main() {
 	std::chrono::duration<double> elapsed = finish - start;
 	std::cout << "Elapsed time: " << elapsed.count() << " s\n";
 
-	printf("NUMBER OF PERMUTATIONS CHECKED: %d\n", optimizer.test);
-
-	
-
-	
-
 	return 0;
 }
