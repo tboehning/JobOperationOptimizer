@@ -6,12 +6,12 @@ Job::Job(const int &number, const std::string &name) :
 
 void Job::append_operation(const JobOperation &operation)
 {
-	operations.push_back(operation);
+	operations.emplace_back(operation);
 }
 
 void Job::append_dependency(const Job &dependency)
 {
-	dependencies.push_back(dependency);
+	dependencies.emplace_back(dependency);
 }
 
 int Job::get_amount_of_operations() const

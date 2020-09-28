@@ -1,6 +1,9 @@
 #ifndef OPTIMIZER_H_
 #define OPTIMIZER_H_
 
+#include <future>
+#include <thread>
+
 #include "JobList.h"
 #include "DecisionStackList.h"
 #include "Permutation.h"

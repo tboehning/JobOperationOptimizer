@@ -2,7 +2,7 @@
 
 void DecisionStackList::append_decision_stack_initial(const DecisionStack &stack)
 {
-	decisionStacksInitial.push_back(stack);
+	decisionStacksInitial.emplace_back(stack);
 }
 
 std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
@@ -20,7 +20,7 @@ std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
 
 void DecisionStackList::make_decision(const JobOperation &decision)
 {
-	previous_decisions.push_back(decision);
+	previous_decisions.emplace_back(decision);
 
 	for (auto &stack : decisionStacksInitial) {
 		if (!stack.get_decisions().empty()) {

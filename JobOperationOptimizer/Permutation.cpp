@@ -29,7 +29,7 @@ void Permutation::append_job(const Job &job)
 
 void Permutation::append_operation(const JobOperation &operation)
 {
-	operations.push_back(operation);
+	operations.emplace_back(operation);
 }
 
 int Permutation::calculate_tool_changes() const

@@ -74,8 +74,8 @@ int main() {
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	//optimizer.optimize_toolchanges();
-	optimizer.optimize_transition_length();
+	optimizer.optimize_toolchanges();
+	//optimizer.optimize_transition_length();
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;

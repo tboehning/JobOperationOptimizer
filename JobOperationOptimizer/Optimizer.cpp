@@ -41,6 +41,7 @@ void Optimizer::evaluate_leaf_toolchanges(const Permutation &permutation)
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
 
+
 	if (AMOUNT_TOOL_CHANGES < optimalAmountOfToolChanges) {
 		permutation.print_permutation();
 
