@@ -1,11 +1,5 @@
 #include "DecisionStack.h"
 
-DecisionStack::DecisionStack(const Job &job)
-{
-	append_operations_from_job(job);
-	append_dependencies_from_job(job);
-}
-
 void DecisionStack::pop_top()
 {
 	decisions.pop();
@@ -28,13 +22,13 @@ void DecisionStack::append_operations_from_job(const Job &job)
 	}
 }
 
-void DecisionStack::append_dependencies_from_job(const Job &job)
+void DecisionStack::append_dependencies_recursively_from_job(const Job &job)
 {
 	std::vector<Job> dependencies = job.get_dependencies();
 
 	for (int i = dependencies.size() - 1; i >= 0; i--) {
 		append_operations_from_job(dependencies[i]);
-		append_dependencies_from_job(dependencies[i]);
+		append_dependencies_recursively_from_job(dependencies[i]);
 	}
 }
 

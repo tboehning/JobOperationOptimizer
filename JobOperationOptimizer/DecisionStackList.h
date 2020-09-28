@@ -5,6 +5,7 @@
 #include <set>
 
 #include "DecisionStack.h"
+#include "Permutation.h"
 
 class DecisionStackList
 {
@@ -15,15 +16,14 @@ public:
 
 	void make_decision(const JobOperation &decision);
 
+	void pop_previous_decisions_from_stacks_top(const Permutation &permutation);
+
 	std::vector<DecisionStack> get_decision_stacks() const;
 
 	void print_decision_stacks() const;
 
 private:
-	std::vector<DecisionStack> decisionStacksInitial;
-	std::vector<JobOperation> previous_decisions;
-
-	void pop_previous_decisions_from_stack(DecisionStack &decisionstack);
+	std::vector<DecisionStack> decisionStacks;
 };
 
 #endif

@@ -67,6 +67,11 @@ double Permutation::calculate_toolpath_from_transitions() const
 	return lengthToolPath;
 }
 
+std::vector<JobOperation> Permutation::get_operations() const
+{
+	return operations;
+}
+
 void Permutation::print_permutation() const
 {
 	const int TOOL_CHANGES = calculate_tool_changes();

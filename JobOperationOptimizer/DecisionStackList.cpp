@@ -2,14 +2,14 @@
 
 void DecisionStackList::append_decision_stack_initial(const DecisionStack &stack)
 {
-	decisionStacksInitial.emplace_back(stack);
+	decisionStacks.emplace_back(stack);
 }
 
 std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
 {
 	std::set<JobOperation> decisionSet;
 
-	for (const auto &decisionStack : decisionStacksInitial) {
+	for (const auto &decisionStack : decisionStacks) {
 		if (!decisionStack.get_decisions().empty()) {
 			decisionSet.insert(decisionStack.get_top());
 		}
@@ -20,36 +20,36 @@ std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
 
 void DecisionStackList::make_decision(const JobOperation &decision)
 {
-	previous_decisions.emplace_back(decision);
-
-	for (auto &stack : decisionStacksInitial) {
+	for (auto &stack : decisionStacks) {
 		if (!stack.get_decisions().empty()) {
 			if (stack.get_top() == decision) {
 				stack.pop_top();
 			}
+		}
+	}
+}
 
-			pop_previous_decisions_from_stack(stack);
+void DecisionStackList::pop_previous_decisions_from_stacks_top(const Permutation &permutation)
+{
+	for (auto &stack : decisionStacks) {
+		if (!stack.get_decisions().empty()) {
+			const std::vector<JobOperation> PREVIOUS_OPERATIONS = permutation.get_operations();
+
+			while (std::find(PREVIOUS_OPERATIONS.begin(), PREVIOUS_OPERATIONS.end(), stack.get_top()) != PREVIOUS_OPERATIONS.end()) {
+				stack.pop_top();
+			}
 		}
 	}
 }
 
 std::vector<DecisionStack> DecisionStackList::get_decision_stacks() const
 {
-	return decisionStacksInitial;
+	return decisionStacks;
 }
 
 void DecisionStackList::print_decision_stacks() const
 {
-	for (const auto &decisionstack : decisionStacksInitial) {
+	for (const auto &decisionstack : decisionStacks) {
 		decisionstack.print_decisions();
-	}
-}
-
-void DecisionStackList::pop_previous_decisions_from_stack(DecisionStack &decisionstack)
-{
-	if (!decisionstack.get_decisions().empty()) {
-		while (std::find(previous_decisions.begin(), previous_decisions.end(), decisionstack.get_top()) != previous_decisions.end()) {
-			decisionstack.pop_top();
-		}
 	}
 }

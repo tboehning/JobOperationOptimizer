@@ -10,10 +10,10 @@ void Optimizer::optimize_toolchanges()
 {
 	Permutation currentPermutation;
 
-	std::set<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
+	std::set<JobOperation> decisionSet = decisionStacks.calculate_current_decision_set();
 
 	for (const auto &decision : decisionSet) {
-		check_node_toolchanges(currentPermutation, decisionStacksInitial, decision);
+		check_node_toolchanges(currentPermutation, decisionStacks, decision);
 	}
 }
 
@@ -21,6 +21,7 @@ void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionSt
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
+	currentDecisionStackList.pop_previous_decisions_from_stacks_top(permutationparent);
 
 	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
@@ -62,10 +63,10 @@ void Optimizer::optimize_transition_length()
 {
 	Permutation currentPermutation;
 
-	std::set<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
+	std::set<JobOperation> decisionSet = decisionStacks.calculate_current_decision_set();
 
 	for (const auto &decision : decisionSet) {
-		check_node_length(currentPermutation, decisionStacksInitial, decision);
+		check_node_length(currentPermutation, decisionStacks, decision);
 	}
 }
 
@@ -73,6 +74,7 @@ void Optimizer::check_node_length(Permutation permutationparent, DecisionStackLi
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
+	currentDecisionStackList.pop_previous_decisions_from_stacks_top(permutationparent);
 
 	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
@@ -120,8 +122,10 @@ void Optimizer::append_job(const Job &job)
 {
 	jobList.append_job(job);
 
-	DecisionStack stack(job);
-	decisionStacksInitial.append_decision_stack_initial(stack);
+	DecisionStack stack;
+	stack.append_operations_from_job(job);
+	stack.append_dependencies_recursively_from_job(job);
+	decisionStacks.append_decision_stack_initial(stack);
 }
 
 JobList Optimizer::get_jobs() const
@@ -131,5 +135,5 @@ JobList Optimizer::get_jobs() const
 
 void Optimizer::print_decision_stacks() const
 {
-	decisionStacksInitial.print_decision_stacks();
+	decisionStacks.print_decision_stacks();
 }

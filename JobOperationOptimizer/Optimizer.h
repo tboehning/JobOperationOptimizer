@@ -26,7 +26,7 @@ public:
 private:
 	JobList jobList;
 
-	DecisionStackList decisionStacksInitial;
+	DecisionStackList decisionStacks;
 
 	int optimalAmountOfToolChanges;
 	double optimalLengthToolTransitions;
