@@ -5,15 +5,13 @@ void DecisionStackList::append_decision_stack_initial(const DecisionStack &stack
 	decisionStacksInitial.push_back(stack);
 }
 
-std::vector<JobOperation> DecisionStackList::calculate_current_decision_set() const
+std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
 {
-	std::vector<JobOperation> decisionSet;
+	std::set<JobOperation> decisionSet;
 
 	for (const auto &decisionStack : decisionStacksInitial) {
 		if (!decisionStack.get_decisions().empty()) {
-			if (std::find(decisionSet.begin(), decisionSet.end(), decisionStack.get_top()) == decisionSet.end()) {
-				decisionSet.push_back(decisionStack.get_top());
-			}
+			decisionSet.insert(decisionStack.get_top());
 		}
 	}
 

@@ -20,8 +20,9 @@ public:
 		const Vector &startposition, const Vector &endposition);
 
 	bool operator==(const JobOperation &operation) const;
+	bool operator<(const JobOperation &operation) const;
 	void operator=(const JobOperation &operation);
-
+	
 	void print_operation() const;
 };
 

@@ -29,9 +29,9 @@ private:
 	double optimalLengthToolTransitions;
 
 	void check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
-	void check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
-
 	void evaluate_leaf_toolchanges(const Permutation &permutation);
+
+	void check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
 	void evaluate_leaf_length(const Permutation &permutation);
 };
 

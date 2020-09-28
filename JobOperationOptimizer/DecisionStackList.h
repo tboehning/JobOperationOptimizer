@@ -2,6 +2,7 @@
 #define DECISIONSTACKLIST_H_
 
 #include <vector>
+#include <set>
 
 #include "DecisionStack.h"
 
@@ -10,7 +11,7 @@ class DecisionStackList
 public:
 	void append_decision_stack_initial(const DecisionStack &stack);
 
-	std::vector<JobOperation> calculate_current_decision_set() const;
+	std::set<JobOperation> calculate_current_decision_set() const;
 
 	void make_decision(const JobOperation &decision);
 

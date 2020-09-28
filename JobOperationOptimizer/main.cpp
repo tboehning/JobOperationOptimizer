@@ -9,8 +9,8 @@ int main() {
 	// Real example
 	// Correct Order for toolchanges: 1.1 -> 2.1 -> 3.1 -> 4.1 -> 3.2 -> 4.2
 	// Tool Changes: 7 Length 907.25
-	Job job11(1, "Tasche Schruppen");
-	Job job12(2, "Tasche Schlichten");
+	Job job11(1, "Tasche Schruppen 1");
+	Job job12(2, "Tasche Schlichten 2");
 	Job job13(3, "Bohren und Gewinde 1");
 	Job job14(4, "Bohren und Gewinde 2");
 
@@ -53,13 +53,13 @@ int main() {
 	// *************************************************************
 
 	// Second example for optimal results length: 0.0, changes: 4	
-	//Job job11(1, "TEST");
-	//Job job12(2, "TEST");
-	//Job job13(3, "TEST");
+	/*Job job1(1, "Job 1");
+	Job job2(2, "Job 2");
+	Job job3(3, "Job 3");
 
-	//Misc::fill_first_job_length_zero(job11);
-	//Misc::fill_second_job_length_zero(job12);
-	//Misc::fill_third_job_length_zero(job13);
+	Misc::fill_first_job_length_zero(job1);
+	Misc::fill_second_job_length_zero(job2);
+	Misc::fill_third_job_length_zero(job3);*/
 
 	////job12.append_dependency(job11);
 
@@ -67,15 +67,15 @@ int main() {
 	optimizer.append_joblist(list1);
 	optimizer.append_joblist(list2);
 
-	//optimizer.append_job(job11);
-	//optimizer.append_job(job12);
-	//optimizer.append_job(job13);
+	//optimizer.append_job(job1);
+	//optimizer.append_job(job2);
+	//optimizer.append_job(job3);
 	//optimizer.append_job(job14);
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	optimizer.optimize_toolchanges();
-	//optimizer.optimize_transition_length();
+	//optimizer.optimize_toolchanges();
+	optimizer.optimize_transition_length();
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;

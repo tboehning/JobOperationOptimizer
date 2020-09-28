@@ -10,21 +10,10 @@ void Optimizer::optimize_toolchanges()
 {
 	Permutation currentPermutation;
 
-	std::vector<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
+	std::set<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
 
 	for (const auto &decision : decisionSet) {
 		check_node_toolchanges(currentPermutation, decisionStacksInitial, decision);
-	}
-}
-
-void Optimizer::optimize_transition_length()
-{
-	Permutation currentPermutation;
-
-	std::vector<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
-
-	for (const auto &decision : decisionSet) {
-		check_node_length(currentPermutation, decisionStacksInitial, decision);
 	}
 }
 
@@ -33,7 +22,7 @@ void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionSt
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
 
-	std::vector<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
+	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
 	if (decisionSet.empty()) {
 		evaluate_leaf_toolchanges(permutationparent);
@@ -42,25 +31,6 @@ void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionSt
 		if (permutationparent.calculate_tool_changes() <= optimalAmountOfToolChanges) {
 			for (const auto &decisionNew : decisionSet) {
 				check_node_toolchanges(permutationparent, currentDecisionStackList, decisionNew);
-			}
-		}
-	}
-}
-
-void Optimizer::check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
-{
-	permutationparent.append_operation(decision);
-	currentDecisionStackList.make_decision(decision);
-
-	std::vector<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
-
-	if (decisionSet.empty()) {
-		evaluate_leaf_length(permutationparent);
-	}
-	else {
-		if (permutationparent.calculate_toolpath_from_transitions() < optimalLengthToolTransitions) {
-			for (const auto &decisionNew : decisionSet) {
-				check_node_length(permutationparent, currentDecisionStackList, decisionNew);
 			}
 		}
 	}
@@ -76,12 +46,43 @@ void Optimizer::evaluate_leaf_toolchanges(const Permutation &permutation)
 
 		optimalAmountOfToolChanges = AMOUNT_TOOL_CHANGES;
 		optimalLengthToolTransitions = LENGTH_TOOL_TRANSITIONS;
-	} 
+	}
 	else if (AMOUNT_TOOL_CHANGES == optimalAmountOfToolChanges) {
 		if (LENGTH_TOOL_TRANSITIONS < optimalLengthToolTransitions) {
 			permutation.print_permutation();
 
 			optimalLengthToolTransitions = LENGTH_TOOL_TRANSITIONS;
+		}
+	}
+}
+
+
+void Optimizer::optimize_transition_length()
+{
+	Permutation currentPermutation;
+
+	std::set<JobOperation> decisionSet = decisionStacksInitial.calculate_current_decision_set();
+
+	for (const auto &decision : decisionSet) {
+		check_node_length(currentPermutation, decisionStacksInitial, decision);
+	}
+}
+
+void Optimizer::check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
+{
+	permutationparent.append_operation(decision);
+	currentDecisionStackList.make_decision(decision);
+
+	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
+
+	if (decisionSet.empty()) {
+		evaluate_leaf_length(permutationparent);
+	}
+	else {
+		if (permutationparent.calculate_toolpath_from_transitions() < optimalLengthToolTransitions) {
+			for (const auto &decisionNew : decisionSet) {
+				check_node_length(permutationparent, currentDecisionStackList, decisionNew);
+			}
 		}
 	}
 }
@@ -105,6 +106,7 @@ void Optimizer::evaluate_leaf_length(const Permutation &permutation)
 		}
 	}
 }
+
 
 void Optimizer::append_joblist(const JobList &list)
 {
