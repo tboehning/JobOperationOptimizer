@@ -13,17 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Headerdateien\Optimization">
-      <UniqueIdentifier>{2e5d69dc-07fb-40ee-9a6d-48e9658f0c1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Quelldateien\Optimization">
-      <UniqueIdentifier>{a3b557d5-5bc3-4538-b14f-11068c951b78}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headerdateien\Joblist">
       <UniqueIdentifier>{b0548b84-251f-4391-b217-6bd515b2452e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Quelldateien\Joblist">
       <UniqueIdentifier>{40bc07a6-4287-48a1-a39c-8585a6d53708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Optimization Structures">
+      <UniqueIdentifier>{a3b557d5-5bc3-4538-b14f-11068c951b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Optimizer">
+      <UniqueIdentifier>{faffcb94-2b0f-4bc5-9a81-8528d09a796e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Optimizer">
+      <UniqueIdentifier>{10d1fff9-6335-43cd-9380-47e27616aade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Optimization Structures">
+      <UniqueIdentifier>{2e5d69dc-07fb-40ee-9a6d-48e9658f0c1e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,16 +49,16 @@
       <Filter>Quelldateien\Joblist</Filter>
     </ClCompile>
     <ClCompile Include="DecisionStack.cpp">
-      <Filter>Quelldateien\Optimization</Filter>
+      <Filter>Quelldateien\Optimization Structures</Filter>
     </ClCompile>
     <ClCompile Include="DecisionStackList.cpp">
-      <Filter>Quelldateien\Optimization</Filter>
-    </ClCompile>
-    <ClCompile Include="Optimizer.cpp">
-      <Filter>Quelldateien\Optimization</Filter>
+      <Filter>Quelldateien\Optimization Structures</Filter>
     </ClCompile>
     <ClCompile Include="Permutation.cpp">
-      <Filter>Quelldateien\Optimization</Filter>
+      <Filter>Quelldateien\Optimization Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimizer.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,20 +74,20 @@
     <ClInclude Include="Vector.h">
       <Filter>Headerdateien\Joblist</Filter>
     </ClInclude>
-    <ClInclude Include="Misc.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="DecisionStack.h">
-      <Filter>Headerdateien\Optimization</Filter>
+      <Filter>Headerdateien\Optimization Structures</Filter>
     </ClInclude>
     <ClInclude Include="DecisionStackList.h">
-      <Filter>Headerdateien\Optimization</Filter>
-    </ClInclude>
-    <ClInclude Include="Optimizer.h">
-      <Filter>Headerdateien\Optimization</Filter>
+      <Filter>Headerdateien\Optimization Structures</Filter>
     </ClInclude>
     <ClInclude Include="Permutation.h">
-      <Filter>Headerdateien\Optimization</Filter>
+      <Filter>Headerdateien\Optimization Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimizer.h">
+      <Filter>Headerdateien\Optimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
