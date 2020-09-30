@@ -1,17 +1,14 @@
-#ifndef OPTIMIZER_H_
-#define OPTIMIZER_H_
-
-#include <future>
-#include <thread>
+#ifndef OPTIMIZERJOBSWITHDEPENDENCIES_H_
+#define OPTIMIZERJOBSWITHDEPENDENCIES_H_
 
 #include "JobList.h"
 #include "DecisionStackList.h"
 #include "Permutation.h"
 
-class Optimizer
+class OptimizerJobsWithDependencies
 {
 public:
-	Optimizer();
+	OptimizerJobsWithDependencies();
 
 	void optimize_toolchanges();
 	void optimize_transition_length();

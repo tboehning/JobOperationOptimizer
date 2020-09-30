@@ -2,7 +2,7 @@
 #include "Permutation.h"
 #include "Misc.h"
 #include "DecisionStackList.h"
-#include "Optimizer.h"
+#include "OptimizerJobsWithDependencies.h"
 #include <chrono>
 
 int main() {
@@ -63,7 +63,7 @@ int main() {
 
 	////job12.append_dependency(job11);
 
-	Optimizer optimizer;
+	OptimizerJobsWithDependencies optimizer;
 	optimizer.append_joblist(list1);
 	optimizer.append_joblist(list2);
 

@@ -57,7 +57,7 @@
     <ClCompile Include="Permutation.cpp">
       <Filter>Quelldateien\Optimization Structures</Filter>
     </ClCompile>
-    <ClCompile Include="Optimizer.cpp">
+    <ClCompile Include="OptimizerJobsWithDependencies.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,11 +83,11 @@
     <ClInclude Include="Permutation.h">
       <Filter>Headerdateien\Optimization Structures</Filter>
     </ClInclude>
-    <ClInclude Include="Optimizer.h">
-      <Filter>Headerdateien\Optimizer</Filter>
-    </ClInclude>
     <ClInclude Include="Misc.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerJobsWithDependencies.h">
+      <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

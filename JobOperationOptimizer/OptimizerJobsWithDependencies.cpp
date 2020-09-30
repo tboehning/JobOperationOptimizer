@@ -1,12 +1,12 @@
-#include "Optimizer.h"
+#include "OptimizerJobsWithDependencies.h"
 
-Optimizer::Optimizer() 
+OptimizerJobsWithDependencies::OptimizerJobsWithDependencies()
 {
 	optimalAmountOfToolChanges = INT_MAX;
 	optimalLengthToolTransitions = INT_MAX;
 }
 
-void Optimizer::optimize_toolchanges()
+void OptimizerJobsWithDependencies::optimize_toolchanges()
 {
 	Permutation currentPermutation;
 
@@ -17,7 +17,7 @@ void Optimizer::optimize_toolchanges()
 	}
 }
 
-void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
+void OptimizerJobsWithDependencies::check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
@@ -37,7 +37,7 @@ void Optimizer::check_node_toolchanges(Permutation permutationparent, DecisionSt
 	}
 }
 
-void Optimizer::evaluate_leaf_toolchanges(const Permutation &permutation)
+void OptimizerJobsWithDependencies::evaluate_leaf_toolchanges(const Permutation &permutation)
 {
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
@@ -59,7 +59,7 @@ void Optimizer::evaluate_leaf_toolchanges(const Permutation &permutation)
 }
 
 
-void Optimizer::optimize_transition_length()
+void OptimizerJobsWithDependencies::optimize_transition_length()
 {
 	Permutation currentPermutation;
 
@@ -70,7 +70,7 @@ void Optimizer::optimize_transition_length()
 	}
 }
 
-void Optimizer::check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
+void OptimizerJobsWithDependencies::check_node_length(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision)
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
@@ -90,7 +90,7 @@ void Optimizer::check_node_length(Permutation permutationparent, DecisionStackLi
 	}
 }
 
-void Optimizer::evaluate_leaf_length(const Permutation &permutation)
+void OptimizerJobsWithDependencies::evaluate_leaf_length(const Permutation &permutation)
 {
 	const int AMOUNT_TOOL_CHANGES = permutation.calculate_tool_changes();
 	const double LENGTH_TOOL_TRANSITIONS = permutation.calculate_toolpath_from_transitions();
@@ -111,14 +111,14 @@ void Optimizer::evaluate_leaf_length(const Permutation &permutation)
 }
 
 
-void Optimizer::append_joblist(const JobList &list)
+void OptimizerJobsWithDependencies::append_joblist(const JobList &list)
 {
 	for (const auto &job : list.get_jobs()) {
 		append_job(job);
 	}
 }
 
-void Optimizer::append_job(const Job &job)
+void OptimizerJobsWithDependencies::append_job(const Job &job)
 {
 	jobList.append_job(job);
 
@@ -128,12 +128,12 @@ void Optimizer::append_job(const Job &job)
 	decisionStacks.append_decision_stack_initial(stack);
 }
 
-JobList Optimizer::get_jobs() const
+JobList OptimizerJobsWithDependencies::get_jobs() const
 {
 	return jobList;
 }
 
-void Optimizer::print_decision_stacks() const
+void OptimizerJobsWithDependencies::print_decision_stacks() const
 {
 	decisionStacks.print_decision_stacks();
 }

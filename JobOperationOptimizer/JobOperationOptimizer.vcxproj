@@ -145,7 +145,7 @@
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Optimizer.cpp" />
+    <ClCompile Include="OptimizerJobsWithDependencies.cpp" />
     <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -156,7 +156,7 @@
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
     <ClInclude Include="Misc.h" />
-    <ClInclude Include="Optimizer.h" />
+    <ClInclude Include="OptimizerJobsWithDependencies.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
