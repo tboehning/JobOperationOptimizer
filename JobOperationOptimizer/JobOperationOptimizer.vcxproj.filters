@@ -60,6 +60,9 @@
     <ClCompile Include="OptimizerJobsWithDependencies.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
+    <ClCompile Include="OptimizerOrderedJoblists.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -87,6 +90,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="OptimizerJobsWithDependencies.h">
+      <Filter>Headerdateien\Optimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerOrderedJoblists.h">
       <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>

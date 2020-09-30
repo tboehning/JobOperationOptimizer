@@ -3,6 +3,7 @@
 #include "Misc.h"
 #include "DecisionStackList.h"
 #include "OptimizerJobsWithDependencies.h"
+#include "OptimizerOrderedJoblists.h"
 #include <chrono>
 
 int main() {
