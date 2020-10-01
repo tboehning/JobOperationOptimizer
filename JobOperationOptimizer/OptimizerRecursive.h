@@ -1,32 +1,28 @@
-#ifndef OPTIMIZERJOBSWITHDEPENDENCIES_H_
-#define OPTIMIZERJOBSWITHDEPENDENCIES_H_
+#ifndef OPTIMIZERRECURSIVE_H_
+#define OPTIMIZERRECURSIVE_H_
 
-#include "JobList.h"
 #include "DecisionStackList.h"
-#include "Permutation.h"
 
-class OptimizerJobsWithDependencies
+class OptimizerRecursive
 {
 public:
-	OptimizerJobsWithDependencies();
+	OptimizerRecursive();
 
 	void optimize_toolchanges();
-	void optimize_transition_length();
+	void optimize_transitionlength();
 
-	void append_joblist(const JobList &list);
-	void append_job(const Job &job);
-
-	JobList get_jobs() const;
+	void append_ordered_joblist(const JobList &joblist);
+	void append_joblist_with_dependencies(const JobList &joblist);
 
 	void print_decision_stacks() const;
 
 private:
-	JobList jobList;
-
 	DecisionStackList decisionStacks;
 
 	int optimalAmountOfToolChanges;
 	double optimalLengthToolTransitions;
+
+	void append_decisionstack_for_job(const Job &job);
 
 	void check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);
 	void evaluate_leaf_toolchanges(const Permutation &permutation);

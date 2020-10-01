@@ -6,56 +6,56 @@ namespace Misc {
 	void fill_joblist1_job1(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Schruppen 1", JOB_NUMBER, 1, 1, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
+		job.append_operation(JobOperation("Schruppen L1 J1", JOB_NUMBER, 1, 1, Vector(0.0, 0.0, 0.0), Vector(10.3, 12.0, 5.64)));
 	}
 
 	void fill_joblist1_job2(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Schlichten 1", JOB_NUMBER, 1, 2, Vector(100.3, 0.0, 0.0), Vector(42.12, 126.53, 641.5)));
+		job.append_operation(JobOperation("Schlichten L1 J2", JOB_NUMBER, 1, 2, Vector(100.3, 0.0, 0.0), Vector(42.12, 126.53, 641.5)));
 	}
 
 	void fill_joblist1_job3(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren 1 1", JOB_NUMBER, 1, 3, Vector(54.1, 1.64, 12.54), Vector(65.1, 0.0, 421.0)));
-		job.append_operation(JobOperation("Senken 1 1", JOB_NUMBER, 2, 4, Vector(54.1, 1.64, 12.54), Vector(52.2, 567.1, 65.1)));
+		job.append_operation(JobOperation("Bohren L1 J3", JOB_NUMBER, 1, 3, Vector(54.1, 1.64, 12.54), Vector(65.1, 0.0, 421.0)));
+		job.append_operation(JobOperation("Senken L1 J3", JOB_NUMBER, 2, 4, Vector(54.1, 1.64, 12.54), Vector(52.2, 567.1, 65.1)));
 		//job.append_operation(JobOperation("Gewindebohren 1 1", JOB_NUMBER, 2, 5, Vector(54.1, 1.64, 12.54), Vector(12.67, 75.1, 89.1)));
 	}
 
 	void fill_joblist1_job4(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren 1 2", JOB_NUMBER, 1, 3, Vector(321.2, 789.1, 437.1), Vector(853.123, 123.1, 588.9)));
-		job.append_operation(JobOperation("Senken 1 2", JOB_NUMBER, 2, 4, Vector(321.2, 789.1, 437.1), Vector(534.12, 122.0, 566.64)));
+		job.append_operation(JobOperation("Bohren L1 J4", JOB_NUMBER, 1, 3, Vector(321.2, 789.1, 437.1), Vector(853.123, 123.1, 588.9)));
+		job.append_operation(JobOperation("Senken L1 J4", JOB_NUMBER, 2, 4, Vector(321.2, 789.1, 437.1), Vector(534.12, 122.0, 566.64)));
 		//job.append_operation(JobOperation("Gewindebohren 1", JOB_NUMBER, 2, 6, Vector(321.2, 789.1, 437.1), Vector(104.13, 172.0, 51.64)));
 	}
 
 	void fill_joblist2_job1(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Schruppen 2", JOB_NUMBER, 1, 1, Vector(0.0 + OFFSET_X, 0.0, 0.0), Vector(10.3 + OFFSET_X, 12.0, 5.64)));
+		job.append_operation(JobOperation("Schruppen L2 J1", JOB_NUMBER, 1, 1, Vector(0.0 + OFFSET_X, 0.0, 0.0), Vector(10.3 + OFFSET_X, 12.0, 5.64)));
 	}
 
 	void fill_joblist2_job2(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Schlichten 2", JOB_NUMBER, 1, 2, Vector(100.3 + OFFSET_X, 0.0, 0.0), Vector(42.12 + OFFSET_X, 126.53, 641.5)));
+		job.append_operation(JobOperation("Schlichten L2 J2", JOB_NUMBER, 1, 2, Vector(100.3 + OFFSET_X, 0.0, 0.0), Vector(42.12 + OFFSET_X, 126.53, 641.5)));
 	}
 
 	void fill_joblist2_job3(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren 2 1", JOB_NUMBER, 1, 3, Vector(54.1 + OFFSET_X, 1.64, 12.54), Vector(65.1 + OFFSET_X, 0.0, 421.0)));
-		job.append_operation(JobOperation("Senken 2 1", JOB_NUMBER, 2, 4, Vector(54.1 + OFFSET_X, 1.64, 12.54), Vector(52.2 + OFFSET_X, 567.1, 65.1)));
+		job.append_operation(JobOperation("Bohren L2 J3", JOB_NUMBER, 1, 3, Vector(54.1 + OFFSET_X, 1.64, 12.54), Vector(65.1 + OFFSET_X, 0.0, 421.0)));
+		job.append_operation(JobOperation("Senken L2 J3", JOB_NUMBER, 2, 4, Vector(54.1 + OFFSET_X, 1.64, 12.54), Vector(52.2 + OFFSET_X, 567.1, 65.1)));
 		//job.append_operation(JobOperation("Gewindebohren 2", JOB_NUMBER, 2, 5, Vector(54.1 + OFFSET_X, 1.64, 12.54), Vector(12.67 + OFFSET_X, 75.1, 89.1)));
 	}
 
 	void fill_joblist2_job4(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren 2 2", JOB_NUMBER, 1, 3, Vector(321.2 + OFFSET_X, 789.1, 437.1), Vector(853.123 + OFFSET_X, 123.1, 588.9)));
-		job.append_operation(JobOperation("Senken 2 2", JOB_NUMBER, 2, 4, Vector(321.2 + OFFSET_X, 789.1, 437.1), Vector(534.12 + OFFSET_X, 122.0, 566.64)));
+		job.append_operation(JobOperation("Bohren L2 J4", JOB_NUMBER, 1, 3, Vector(321.2 + OFFSET_X, 789.1, 437.1), Vector(853.123 + OFFSET_X, 123.1, 588.9)));
+		job.append_operation(JobOperation("Senken L2 J4", JOB_NUMBER, 2, 4, Vector(321.2 + OFFSET_X, 789.1, 437.1), Vector(534.12 + OFFSET_X, 122.0, 566.64)));
 		//job.append_operation(JobOperation("Gewindebohren 2", JOB_NUMBER, 2, 6, Vector(321.2 + OFFSET_X, 789.1, 437.1), Vector(104.13 + OFFSET_X, 172.0, 51.64)));
 	}
 

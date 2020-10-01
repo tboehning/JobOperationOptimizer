@@ -57,10 +57,7 @@
     <ClCompile Include="Permutation.cpp">
       <Filter>Quelldateien\Optimization Structures</Filter>
     </ClCompile>
-    <ClCompile Include="OptimizerJobsWithDependencies.cpp">
-      <Filter>Quelldateien\Optimizer</Filter>
-    </ClCompile>
-    <ClCompile Include="OptimizerOrderedJoblists.cpp">
+    <ClCompile Include="OptimizerRecursive.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,10 +86,7 @@
     <ClInclude Include="Misc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="OptimizerJobsWithDependencies.h">
-      <Filter>Headerdateien\Optimizer</Filter>
-    </ClInclude>
-    <ClInclude Include="OptimizerOrderedJoblists.h">
+    <ClInclude Include="OptimizerRecursive.h">
       <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>

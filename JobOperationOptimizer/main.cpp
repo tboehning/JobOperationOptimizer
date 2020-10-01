@@ -1,15 +1,8 @@
-#include "JobList.h"
-#include "Permutation.h"
 #include "Misc.h"
-#include "DecisionStackList.h"
-#include "OptimizerJobsWithDependencies.h"
-#include "OptimizerOrderedJoblists.h"
+#include "OptimizerRecursive.h"
 #include <chrono>
 
 int main() {
-	// Real example
-	// Correct Order for toolchanges: 1.1 -> 2.1 -> 3.1 -> 4.1 -> 3.2 -> 4.2
-	// Tool Changes: 7 Length 907.25
 	Job job11(1, "Tasche Schruppen 1");
 	Job job12(2, "Tasche Schlichten 2");
 	Job job13(3, "Bohren und Gewinde 1");
@@ -51,7 +44,6 @@ int main() {
 	list2.append_job(job23);
 	list2.append_job(job24);
 
-	// *************************************************************
 
 	// Second example for optimal results length: 0.0, changes: 4	
 	/*Job job1(1, "Job 1");
@@ -62,21 +54,20 @@ int main() {
 	Misc::fill_second_job_length_zero(job2);
 	Misc::fill_third_job_length_zero(job3);*/
 
-	////job12.append_dependency(job11);
+	OptimizerRecursive optimizer;
+	//optimizer.append_ordered_joblist(list1);
+	optimizer.append_joblist_with_dependencies(list1);
+	optimizer.append_joblist_with_dependencies(list2);
 
-	OptimizerJobsWithDependencies optimizer;
-	optimizer.append_joblist(list1);
-	optimizer.append_joblist(list2);
+	//optimizer.append_ordered_joblist(list2);
 
-	//optimizer.append_job(job1);
-	//optimizer.append_job(job2);
-	//optimizer.append_job(job3);
-	//optimizer.append_job(job14);
+	optimizer.print_decision_stacks();
+
 
 	auto start = std::chrono::high_resolution_clock::now();
 
 	optimizer.optimize_toolchanges();
-	//optimizer.optimize_transition_length();
+	//optimizer.optimize_transitionlength();
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;
