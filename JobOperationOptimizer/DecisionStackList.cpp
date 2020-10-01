@@ -29,6 +29,19 @@ void DecisionStackList::make_decision(const JobOperation &decision)
 	}
 }
 
+void DecisionStackList::pop_previous_decisions_from_stacks_top(const Permutation &permutation)
+{
+	for (auto &stack : decisionStacks) {
+		if (!stack.get_decisions().empty()) {
+			const std::vector<JobOperation> PREVIOUS_OPERATIONS = permutation.get_operations();
+
+			while (std::find(PREVIOUS_OPERATIONS.begin(), PREVIOUS_OPERATIONS.end(), stack.get_top()) != PREVIOUS_OPERATIONS.end()) {
+				stack.pop_top();
+			}
+		}
+	}
+}
+
 std::vector<DecisionStack> DecisionStackList::get_decision_stacks() const
 {
 	return decisionStacks;

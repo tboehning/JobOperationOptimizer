@@ -56,10 +56,10 @@ int main() {
 
 	OptimizerRecursive optimizer;
 	//optimizer.append_ordered_joblist(list1);
+	//optimizer.append_ordered_joblist(list2);
 	optimizer.append_joblist_with_dependencies(list1);
 	optimizer.append_joblist_with_dependencies(list2);
 
-	//optimizer.append_ordered_joblist(list2);
 
 	optimizer.print_decision_stacks();
 

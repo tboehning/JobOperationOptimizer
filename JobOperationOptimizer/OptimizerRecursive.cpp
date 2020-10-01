@@ -4,6 +4,8 @@ OptimizerRecursive::OptimizerRecursive()
 {
 	optimalAmountOfToolChanges = INT_MAX;
 	optimalLengthToolTransitions = INT_MAX;
+
+	hasJobsWithUnorderedDependencies = false;
 }
 
 
@@ -22,6 +24,10 @@ void OptimizerRecursive::check_node_toolchanges(Permutation permutationparent, D
 {
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
+
+	if (hasJobsWithUnorderedDependencies) {
+		currentDecisionStackList.pop_previous_decisions_from_stacks_top(permutationparent);
+	}
 
 	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
@@ -75,6 +81,10 @@ void OptimizerRecursive::check_node_length(Permutation permutationparent, Decisi
 	permutationparent.append_operation(decision);
 	currentDecisionStackList.make_decision(decision);
 
+	if (hasJobsWithUnorderedDependencies) {
+		currentDecisionStackList.pop_previous_decisions_from_stacks_top(permutationparent);
+	}
+
 	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
 	if (decisionSet.empty()) {
@@ -123,6 +133,8 @@ void OptimizerRecursive::append_ordered_joblist(const JobList &joblist)
 
 void OptimizerRecursive::append_joblist_with_dependencies(const JobList &joblist)
 {
+	hasJobsWithUnorderedDependencies = true;
+
 	for (const auto &job : joblist.get_jobs()) {
 		append_decisionstack_for_job(job);
 	}

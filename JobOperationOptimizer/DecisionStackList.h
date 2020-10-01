@@ -16,6 +16,8 @@ public:
 
 	void make_decision(const JobOperation &decision);
 
+	void pop_previous_decisions_from_stacks_top(const Permutation &permutation);
+
 	std::vector<DecisionStack> get_decision_stacks() const;
 
 	void print_decision_stacks() const;
