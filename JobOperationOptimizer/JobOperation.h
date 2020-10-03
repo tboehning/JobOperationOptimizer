@@ -16,6 +16,7 @@ public:
 	Vector startPosition;
 	Vector endPosition;
 
+	JobOperation();
 	JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, 
 		const Vector &startposition, const Vector &endposition);
 

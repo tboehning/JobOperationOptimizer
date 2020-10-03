@@ -8,7 +8,7 @@ class Permutation
 public:
 	Permutation(const JobList &joblist);
 	Permutation(const Job &job);
-	Permutation();
+	Permutation(const int &size);
 
 	void append_joblist(const JobList &joblist);
 	void append_job(const Job &job);

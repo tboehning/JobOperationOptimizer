@@ -24,6 +24,8 @@ private:
 
 	bool hasJobsWithUnorderedDependencies;
 
+	int amountOfOperations;
+
 	void append_decisionstack_for_job(const Job &job);
 
 	void check_node_toolchanges(Permutation permutationparent, DecisionStackList currentDecisionStackList, const JobOperation &decision);

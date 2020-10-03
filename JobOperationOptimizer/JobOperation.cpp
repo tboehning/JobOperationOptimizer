@@ -1,5 +1,13 @@
 #include "JobOperation.h"
 
+JobOperation::JobOperation()
+{
+	name = "";
+	jobNumber = 0;
+	operationNumber = 0;
+	toolNumber = 0;
+}
+
 JobOperation::JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition) :
 	name(name), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
 { }

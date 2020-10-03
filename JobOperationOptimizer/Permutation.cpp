@@ -10,8 +10,10 @@ Permutation::Permutation(const Job &job)
 	append_job(job);
 }
 
-Permutation::Permutation()
-{ }
+Permutation::Permutation(const int &size)
+{
+	operations.reserve(size);
+}
 
 void Permutation::append_joblist(const JobList &joblist)
 {

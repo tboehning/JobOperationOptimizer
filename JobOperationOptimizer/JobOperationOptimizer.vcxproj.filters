@@ -60,6 +60,9 @@
     <ClCompile Include="OptimizerRecursive.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
+    <ClCompile Include="OptimizerGreedy.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -87,6 +90,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="OptimizerRecursive.h">
+      <Filter>Headerdateien\Optimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerGreedy.h">
       <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>
