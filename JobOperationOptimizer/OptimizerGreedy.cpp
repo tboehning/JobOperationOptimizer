@@ -72,13 +72,14 @@ void OptimizerGreedy::append_decisionstack_for_job(const Job &job)
 
 JobOperation OptimizerGreedy::calculate_next_best_decision(const Permutation &permutation, const std::set<JobOperation> &decisionset) const
 {
-	JobOperation decision;
+	JobOperation firstBestDecision;
+	JobOperation secondBestDecision;
 
 	int previousOperationToolnumber;
 	Vector previousOperationEndpoint;
 
-	int currentBestToolchanges = 1;
-	double currentBestLengthTransition = INT_MAX;
+	double currentBestLengthFirstBestDecision = INT_MAX;
+	double currentBestLengthSecondBestDecision = INT_MAX;
 
 	bool operationWithZeroToolchangesFound = false;
 
@@ -98,26 +99,20 @@ JobOperation OptimizerGreedy::calculate_next_best_decision(const Permutation &pe
 		if (TOOLCHANGES_POSSIBLE_DECISION == 0) {
 			operationWithZeroToolchangesFound = true;
 
-			if (LENGTH_TRANSITION_POSSIBLE_DECISION < currentBestLengthTransition) {
-				decision = possibleDecision;
+			if (LENGTH_TRANSITION_POSSIBLE_DECISION < currentBestLengthFirstBestDecision) {
+				firstBestDecision = possibleDecision;
 
-				currentBestToolchanges = 0;
-				currentBestLengthTransition = LENGTH_TRANSITION_POSSIBLE_DECISION;
+				currentBestLengthFirstBestDecision = LENGTH_TRANSITION_POSSIBLE_DECISION;
+			}
+		}
+		else if (!operationWithZeroToolchangesFound) {
+			if (LENGTH_TRANSITION_POSSIBLE_DECISION < currentBestLengthSecondBestDecision) {
+				secondBestDecision = possibleDecision;
+
+				currentBestLengthSecondBestDecision = LENGTH_TRANSITION_POSSIBLE_DECISION;
 			}
 		}
 	}
 
-	if (!operationWithZeroToolchangesFound) {
-		for (const auto &possibleDecision : decisionset) {
-			const double LENGTH_TRANSITION_POSSIBLE_DECISION = previousOperationEndpoint.calculate_distance_to_vector(possibleDecision.startPosition);
-
-			if (LENGTH_TRANSITION_POSSIBLE_DECISION < currentBestLengthTransition) {
-				decision = possibleDecision;
-
-				currentBestLengthTransition = LENGTH_TRANSITION_POSSIBLE_DECISION;
-			}
-		}
-	}
-
-	return decision;
+	return (operationWithZeroToolchangesFound) ? firstBestDecision : secondBestDecision;
 }
