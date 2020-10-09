@@ -55,14 +55,15 @@ int main() {
 	Misc::fill_second_job_length_zero(job2);
 	Misc::fill_third_job_length_zero(job3);*/
 
-	//OptimizerRecursive optimizer;
-	OptimizerGreedy optimizer;
+	OptimizerRecursive optimizer;
+	//OptimizerGreedy optimizer;
 	optimizer.append_ordered_joblist(list1);
 	optimizer.append_ordered_joblist(list2);
 	//optimizer.append_joblist_with_dependencies(list1);
 	//optimizer.append_joblist_with_dependencies(list2);
 
-	//optimizer.print_decision_stacks();
+	optimizer.print_decision_stacks();
+	std::cout << "\n";
 
 
 	auto start = std::chrono::high_resolution_clock::now();
