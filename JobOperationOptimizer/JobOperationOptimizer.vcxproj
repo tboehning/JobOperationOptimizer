@@ -148,6 +148,7 @@
     <ClCompile Include="OptimizerGreedy.cpp" />
     <ClCompile Include="OptimizerRecursive.cpp" />
     <ClCompile Include="Permutation.cpp" />
+    <ClCompile Include="PermutationBoundaries.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="OptimizerGreedy.h" />
     <ClInclude Include="OptimizerRecursive.h" />
     <ClInclude Include="Permutation.h" />
+    <ClInclude Include="PermutationBoundaries.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

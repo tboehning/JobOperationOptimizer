@@ -2,6 +2,7 @@
 #define OPTIMIZERRECURSIVE_H_
 
 #include "DecisionStackList.h"
+#include "PermutationBoundaries.h"
 
 class OptimizerRecursive
 {
@@ -19,6 +20,7 @@ public:
 private:
 	DecisionStackList decisionStacks;
 
+	PermutationBoundaries permutationBoundaries;
 	int optimalAmountOfToolChanges;
 	double optimalLengthToolTransitions;
 

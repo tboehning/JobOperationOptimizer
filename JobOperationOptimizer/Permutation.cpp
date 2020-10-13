@@ -15,6 +15,10 @@ Permutation::Permutation(const int &size)
 	operations.reserve(size);
 }
 
+Permutation::Permutation()
+{
+}
+
 void Permutation::append_joblist(const JobList &joblist)
 {
 	for (auto const &job : joblist.get_jobs()) {
@@ -55,23 +59,28 @@ int Permutation::calculate_tool_changes() const
 double Permutation::calculate_toolpath_from_transitions() const
 {
 	double lengthToolPath = 0.0;
-	
+
 	for (int i = 1; i < operations.size(); i++) {
 		const int INDEX_PREVIOUS_JOB = i - 1;
-	
+
 		const Vector END_POSITION_PREVIOUS_OPERATION = operations[INDEX_PREVIOUS_JOB].endPosition;
 		const Vector START_POSITION_CURRENT_OPERATION = operations[i].startPosition;
-	
+
 		lengthToolPath +=
 			END_POSITION_PREVIOUS_OPERATION.calculate_distance_to_vector(START_POSITION_CURRENT_OPERATION);
 	}
-	
+
 	return lengthToolPath;
 }
 
 std::vector<JobOperation> Permutation::get_operations() const
 {
 	return operations;
+}
+
+int Permutation::get_amount_of_operations() const
+{
+	return operations.size();
 }
 
 void Permutation::print_permutation() const

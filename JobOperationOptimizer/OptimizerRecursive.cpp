@@ -13,6 +13,8 @@ OptimizerRecursive::OptimizerRecursive()
 
 void OptimizerRecursive::optimize_toolchanges()
 {
+	permutationBoundaries.init_minimal_amount_vector(amountOfOperations);
+
 	Permutation currentPermutation(amountOfOperations);
 	
 	std::set<JobOperation> decisionSet = decisionStacks.calculate_current_decision_set();
@@ -33,11 +35,13 @@ void OptimizerRecursive::check_node_toolchanges(Permutation permutationparent, D
 
 	std::set<JobOperation> decisionSet = currentDecisionStackList.calculate_current_decision_set();
 
+	permutationBoundaries.check_and_update_minimal_amount_vector(permutationparent);
+
 	if (decisionSet.empty()) {
 		evaluate_leaf_toolchanges(permutationparent);
 	}
 	else {
-		if (permutationparent.calculate_tool_changes() <= optimalAmountOfToolChanges) {
+		if (permutationBoundaries.node_is_candidate(permutationparent)) {
 			for (const auto &decisionNew : decisionSet) {
 				check_node_toolchanges(permutationparent, currentDecisionStackList, decisionNew);
 			}
