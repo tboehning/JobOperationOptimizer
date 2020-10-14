@@ -17,7 +17,7 @@ void PermutationBoundaries::check_and_update_minimal_amount_vector(const Permuta
 		const int AMOUNT_TOOLCHANGES_PERMUTATION = bestpermutationnode.calculate_tool_changes();
 
 		{
-			std::lock_guard<std::mutex> lockGuard(vectorMutex);
+			//std::lock_guard<std::mutex> lockGuard(vectorMutex);
 
 			if (AMOUNT_TOOLCHANGES_PERMUTATION < currentMinimalAmountToolChangesForCertainPermutationLength[AMOUNT_OF_OPERATIONS_PERMUTATION - 1]) {
 				currentMinimalAmountToolChangesForCertainPermutationLength[AMOUNT_OF_OPERATIONS_PERMUTATION - 1] = AMOUNT_TOOLCHANGES_PERMUTATION;
