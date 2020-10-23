@@ -8,19 +8,35 @@ JobOperation::JobOperation()
 	toolNumber = 0;
 }
 
-JobOperation::JobOperation(const std::string &name, const int &jobnumber, const int &operationnumber, const int &toolnumber, const Vector &startposition, const Vector &endposition) :
-	name(name), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
+JobOperation::JobOperation(const std::string &name, const short &listnumber, const short &jobnumber, const short &operationnumber, const short &toolnumber, const Vector &startposition, const Vector &endposition) :
+	name(name), listNumber(listnumber), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
 { }
 
 bool JobOperation::operator==(const JobOperation &operation) const
 {
-	if (this->name == operation.name 
-		&& this->jobNumber == operation.jobNumber 
-		&& this->operationNumber == operation.operationNumber 
-		&& this->toolNumber == operation.toolNumber 
-		&& this->startPosition == operation.startPosition 
+	if (this->name == operation.name
+		&& this->listNumber == operation.listNumber
+		&& this->jobNumber == operation.jobNumber
+		&& this->operationNumber == operation.operationNumber
+		&& this->toolNumber == operation.toolNumber
+		&& this->startPosition == operation.startPosition
 		&& this->endPosition == operation.endPosition) {
 		return true;
+	}
+
+	return false;
+}
+
+bool JobOperation::operator>(const JobOperation &operation) const
+{
+	if (this->listNumber == operation.listNumber) {
+		if (this->jobNumber == operation.jobNumber
+			&& this->operationNumber > operation.operationNumber) {
+			return true;
+		}
+		else if (this->jobNumber > operation.jobNumber) {
+			return true;
+		}
 	}
 
 	return false;
@@ -29,6 +45,7 @@ bool JobOperation::operator==(const JobOperation &operation) const
 void JobOperation::operator=(const JobOperation &operation)
 {
 	this->name = operation.name;
+	this->listNumber = operation.listNumber;
 	this->jobNumber = operation.jobNumber;
 	this->operationNumber = operation.operationNumber;
 	this->toolNumber = operation.toolNumber;
@@ -39,8 +56,8 @@ void JobOperation::operator=(const JobOperation &operation)
 void JobOperation::print_operation() const
 {
 	std::cout << "   Op. " << name << " --> ";
-	printf("(%d ; %d) ->  %d ; %.2f, %.2f, %.2f ;; %.2f, %.2f, %.2f\n",
-		jobNumber, operationNumber, toolNumber,
+	printf("(L%d ; J%d ; O%d) ->  %d ; %.2f, %.2f, %.2f ;; %.2f, %.2f, %.2f\n",
+		listNumber, jobNumber, operationNumber, toolNumber,
 		startPosition.x, startPosition.y, startPosition.z,
 		endPosition.x, endPosition.y, endPosition.z);
 }
