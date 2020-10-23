@@ -148,6 +148,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OptimizerGreedy.cpp" />
     <ClCompile Include="OptimizerRecursive.cpp" />
+    <ClCompile Include="OptimizerRecursiveMultithreading.cpp" />
     <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Misc.h" />
     <ClInclude Include="OptimizerGreedy.h" />
     <ClInclude Include="OptimizerRecursive.h" />
+    <ClInclude Include="OptimizerRecursiveMultithreading.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\..\..\..\Dropbox\Freelancing\Programmierung\C++\Debug Class\Debug.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="OptimizerRecursiveMultithreading.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerRecursiveMultithreading.h">
+      <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,9 +15,8 @@ Permutation::Permutation(const int &size)
 	operations.reserve(size);
 }
 
-//Permutation::Permutation()
-//{
-//}
+Permutation::Permutation()
+{ }
 
 void Permutation::append_joblist(const JobList &joblist)
 {

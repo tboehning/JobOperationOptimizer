@@ -1,5 +1,6 @@
 #include "Misc.h"
 #include "OptimizerRecursive.h"
+#include "OptimizerRecursiveMultithreading.h"
 #include "OptimizerGreedy.h"
 #include <chrono>
 
@@ -55,15 +56,32 @@ int main() {
 	list3.append_job(job33);
 	list3.append_job(job34);
 
-	//OptimizerRecursive optimizer;
-	OptimizerGreedy optimizer;
-	optimizer.append_joblist(list1);
-	optimizer.append_joblist(list2);
-	//optimizer.append_joblist(list3);
+	//OptimizerGreedy optimizer;
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	optimizer.optimize_toolchanges();
+	#define MULTITHREADING
+
+	#ifdef MULTITHREADING
+		OptimizerRecursiveMultithreading optimizer;
+		optimizer.append_joblist(list1);
+		optimizer.append_joblist(list2);
+		//optimizer.append_joblist(list3);
+
+		Permutation opt = optimizer.optimize_toolchanges();
+		opt.print_permutation();
+	#endif
+
+	#ifndef MULTITHREADING
+		OptimizerRecursive optimizer;
+		optimizer.append_joblist(list1);
+		optimizer.append_joblist(list2);
+		//optimizer.append_joblist(list3);
+
+		optimizer.optimize_toolchanges();
+	#endif
+
+
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;
