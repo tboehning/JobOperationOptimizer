@@ -8,7 +8,6 @@ OptimizerRecursive::OptimizerRecursive()
 	amountOfOperations = 0;
 }
 
-
 void OptimizerRecursive::optimize_toolchanges()
 {
 	Permutation currentPermutation(amountOfOperations);

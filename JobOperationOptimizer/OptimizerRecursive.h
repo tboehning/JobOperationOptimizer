@@ -2,7 +2,6 @@
 #define OPTIMIZERRECURSIVE_H_
 
 #include "DecisionStackList.h"
-#include "Debug.h"
 
 class OptimizerRecursive
 {

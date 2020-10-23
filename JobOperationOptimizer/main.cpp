@@ -55,7 +55,8 @@ int main() {
 	list3.append_job(job33);
 	list3.append_job(job34);
 
-	OptimizerRecursive optimizer;
+	//OptimizerRecursive optimizer;
+	OptimizerGreedy optimizer;
 	optimizer.append_joblist(list1);
 	optimizer.append_joblist(list2);
 	//optimizer.append_joblist(list3);
