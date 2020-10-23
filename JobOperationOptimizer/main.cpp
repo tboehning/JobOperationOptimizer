@@ -2,6 +2,7 @@
 #include "OptimizerRecursive.h"
 #include "OptimizerRecursiveMultithreading.h"
 #include "OptimizerGreedy.h"
+#include "OptimizerGrouping.h"
 #include <chrono>
 
 int main() {
@@ -60,25 +61,37 @@ int main() {
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	#define MULTITHREADING
+	#define GROUP
 
-	#ifdef MULTITHREADING
+	#ifdef MULTI
 		OptimizerRecursiveMultithreading optimizer;
 		optimizer.append_joblist(list1);
 		optimizer.append_joblist(list2);
-		//optimizer.append_joblist(list3);
+		optimizer.append_joblist(list3);
 
 		Permutation opt = optimizer.optimize_toolchanges();
 		opt.print_permutation();
 	#endif
 
-	#ifndef MULTITHREADING
+	#ifdef SINGLE
 		OptimizerRecursive optimizer;
 		optimizer.append_joblist(list1);
 		optimizer.append_joblist(list2);
-		//optimizer.append_joblist(list3);
+		optimizer.append_joblist(list3);
 
 		optimizer.optimize_toolchanges();
+	#endif
+
+	#ifdef GROUP
+		OptimizerGrouping optimizer;
+
+		optimizer.append_ordered_joblist(list1);
+		optimizer.append_ordered_joblist(list2);
+		optimizer.append_ordered_joblist(list3);
+
+		optimizer.optimize_toolchanges();
+		optimizer.print_groups();
+
 	#endif
 
 

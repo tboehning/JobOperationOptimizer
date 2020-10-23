@@ -22,6 +22,8 @@ Permutation OptimizerRecursiveMultithreading::optimize_toolchanges()
 
 Permutation OptimizerRecursiveMultithreading::get_best_permutation_for_toolchanges_from_subtree(Permutation permutationparent, DecisionStackList currentDecisionStackList, const int &indexstack)
 {
+	// TODO: Simple Bounding
+
 	permutationparent.append_operation(currentDecisionStackList.pop_and_get_operation_from_stack(indexstack));
 
 	if (currentDecisionStackList.get_decision_stacks().empty()) {

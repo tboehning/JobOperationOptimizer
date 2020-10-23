@@ -69,6 +69,12 @@
     <ClCompile Include="OptimizerRecursiveMultithreading.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
+    <ClCompile Include="OptimizerGrouping.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationsGroup.cpp">
+      <Filter>Quelldateien\Optimization Structures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -106,6 +112,12 @@
     </ClInclude>
     <ClInclude Include="OptimizerRecursiveMultithreading.h">
       <Filter>Headerdateien\Optimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerGrouping.h">
+      <Filter>Headerdateien\Optimizer</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationsGroup.h">
+      <Filter>Headerdateien\Optimization Structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

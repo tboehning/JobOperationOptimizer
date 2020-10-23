@@ -146,7 +146,9 @@
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OperationsGroup.cpp" />
     <ClCompile Include="OptimizerGreedy.cpp" />
+    <ClCompile Include="OptimizerGrouping.cpp" />
     <ClCompile Include="OptimizerRecursive.cpp" />
     <ClCompile Include="OptimizerRecursiveMultithreading.cpp" />
     <ClCompile Include="Permutation.cpp" />
@@ -160,7 +162,9 @@
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
     <ClInclude Include="Misc.h" />
+    <ClInclude Include="OperationsGroup.h" />
     <ClInclude Include="OptimizerGreedy.h" />
+    <ClInclude Include="OptimizerGrouping.h" />
     <ClInclude Include="OptimizerRecursive.h" />
     <ClInclude Include="OptimizerRecursiveMultithreading.h" />
     <ClInclude Include="Permutation.h" />
