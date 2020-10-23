@@ -63,8 +63,8 @@
     <ClCompile Include="OptimizerGreedy.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
-    <ClCompile Include="PermutationBoundaries.cpp">
-      <Filter>Quelldateien\Optimization Structures</Filter>
+    <ClCompile Include="..\..\..\..\..\Dropbox\Freelancing\Programmierung\C++\Debug Class\Debug.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,8 +98,8 @@
     <ClInclude Include="OptimizerGreedy.h">
       <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
-    <ClInclude Include="PermutationBoundaries.h">
-      <Filter>Headerdateien\Optimization Structures</Filter>
+    <ClInclude Include="Debug.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

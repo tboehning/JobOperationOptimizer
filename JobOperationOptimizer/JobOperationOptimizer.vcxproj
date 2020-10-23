@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Dropbox\Freelancing\Programmierung\C++\Debug Class\Debug.cpp" />
     <ClCompile Include="DecisionStack.cpp" />
     <ClCompile Include="DecisionStackList.cpp" />
     <ClCompile Include="Job.cpp" />
@@ -148,10 +149,10 @@
     <ClCompile Include="OptimizerGreedy.cpp" />
     <ClCompile Include="OptimizerRecursive.cpp" />
     <ClCompile Include="Permutation.cpp" />
-    <ClCompile Include="PermutationBoundaries.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="DecisionStack.h" />
     <ClInclude Include="DecisionStackList.h" />
     <ClInclude Include="Job.h" />
@@ -161,7 +162,6 @@
     <ClInclude Include="OptimizerGreedy.h" />
     <ClInclude Include="OptimizerRecursive.h" />
     <ClInclude Include="Permutation.h" />
-    <ClInclude Include="PermutationBoundaries.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

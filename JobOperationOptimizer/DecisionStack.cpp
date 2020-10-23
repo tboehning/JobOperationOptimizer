@@ -5,6 +5,11 @@ void DecisionStack::pop_top()
 	decisions.pop();
 }
 
+bool DecisionStack::is_empty() const
+{
+	return decisions.empty();
+}
+
 std::stack<JobOperation> DecisionStack::get_decisions() const
 {
 	return decisions;
@@ -19,16 +24,6 @@ void DecisionStack::append_operations_from_job(const Job &job)
 {
 	for (int i = job.get_amount_of_operations() - 1; i >= 0; i--) {
 		decisions.push(job.get_operations()[i]);
-	}
-}
-
-void DecisionStack::append_dependencies_recursively_from_job(const Job &job)
-{
-	std::vector<Job> dependencies = job.get_dependencies();
-
-	for (int i = dependencies.size() - 1; i >= 0; i--) {
-		append_operations_from_job(dependencies[i]);
-		append_dependencies_recursively_from_job(dependencies[i]);
 	}
 }
 

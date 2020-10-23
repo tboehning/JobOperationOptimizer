@@ -26,11 +26,6 @@ bool JobOperation::operator==(const JobOperation &operation) const
 	return false;
 }
 
-bool JobOperation::operator<(const JobOperation &operation) const
-{
-	return this->name < operation.name;
-}
-
 void JobOperation::operator=(const JobOperation &operation)
 {
 	this->name = operation.name;

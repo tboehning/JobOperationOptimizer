@@ -9,11 +9,6 @@ void Job::append_operation(const JobOperation &operation)
 	operations.emplace_back(operation);
 }
 
-void Job::append_dependency(const Job &dependency)
-{
-	dependencies.emplace_back(dependency);
-}
-
 int Job::get_amount_of_operations() const
 {
 	return operations.size();
@@ -24,20 +19,11 @@ std::vector<JobOperation> Job::get_operations() const
 	return operations;
 }
 
-std::vector<Job> Job::get_dependencies() const
-{
-	return dependencies;
-}
-
 void Job::print_job() const
 {
 	std::cout << "Job #" << number << " " << name << "\n";
 
 	for (const auto &operation : operations) {
 		operation.print_operation();
-	}
-
-	for (const auto &dependency : dependencies) {
-		std::cout << "   +++ Dependency: #" << dependency.number << " " << dependency.name << "\n";
 	}
 }

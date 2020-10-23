@@ -12,14 +12,11 @@ class DecisionStackList
 public:
 	void append_decision_stack_initial(const DecisionStack &stack);
 
-	std::set<JobOperation> calculate_current_decision_set() const;
+	JobOperation pop_and_get_operation_from_stack(const int &position);
 
-	void make_decision(const JobOperation &decision);
-
-	void pop_previous_decisions_from_stacks_top(const Permutation &permutation);
-
+	int get_amount_of_stacks() const;
 	std::vector<DecisionStack> get_decision_stacks() const;
-
+	
 	void print_decision_stacks() const;
 
 private:

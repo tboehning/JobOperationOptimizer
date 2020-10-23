@@ -9,9 +9,10 @@ class DecisionStack
 {
 public:
 	void append_operations_from_job(const Job &job);
-	void append_dependencies_recursively_from_job(const Job &job);
 
 	void pop_top();
+
+	bool is_empty() const;
 
 	JobOperation get_top() const;
 	std::stack<JobOperation> get_decisions() const;

@@ -16,17 +16,14 @@ public:
 	Job(const int &number, const std::string &name);
 
 	void append_operation(const JobOperation &operation);
-	void append_dependency(const Job &dependency);
 
 	int get_amount_of_operations() const;
 	std::vector<JobOperation> get_operations() const;
-	std::vector<Job> get_dependencies() const;
 
 	void print_job() const;
 
 private:
 	std::vector<JobOperation> operations;
-	std::vector<Job> dependencies;
 };
 
 #endif

@@ -5,46 +5,27 @@ void DecisionStackList::append_decision_stack_initial(const DecisionStack &stack
 	decisionStacks.emplace_back(stack);
 }
 
-std::set<JobOperation> DecisionStackList::calculate_current_decision_set() const
+JobOperation DecisionStackList::pop_and_get_operation_from_stack(const int &position)
 {
-	std::set<JobOperation> decisionSet;
+	JobOperation operation = decisionStacks[position].get_top();
 
-	for (const auto &decisionStack : decisionStacks) {
-		if (!decisionStack.get_decisions().empty()) {
-			decisionSet.insert(decisionStack.get_top());
-		}
+	decisionStacks[position].pop_top();
+
+	if (decisionStacks[position].is_empty()) {
+		decisionStacks.erase(decisionStacks.begin() + position);
 	}
 
-	return decisionSet;
-}
-
-void DecisionStackList::make_decision(const JobOperation &decision)
-{
-	for (auto &stack : decisionStacks) {
-		if (!stack.get_decisions().empty()) {
-			if (stack.get_top() == decision) {
-				stack.pop_top();
-			}
-		}
-	}
-}
-
-void DecisionStackList::pop_previous_decisions_from_stacks_top(const Permutation &permutation)
-{
-	for (auto &stack : decisionStacks) {
-		if (!stack.get_decisions().empty()) {
-			const std::vector<JobOperation> PREVIOUS_OPERATIONS = permutation.get_operations();
-
-			while (std::find(PREVIOUS_OPERATIONS.begin(), PREVIOUS_OPERATIONS.end(), stack.get_top()) != PREVIOUS_OPERATIONS.end()) {
-				stack.pop_top();
-			}
-		}
-	}
+	return operation;
 }
 
 std::vector<DecisionStack> DecisionStackList::get_decision_stacks() const
 {
 	return decisionStacks;
+}
+
+int DecisionStackList::get_amount_of_stacks() const
+{
+	return decisionStacks.size();
 }
 
 void DecisionStackList::print_decision_stacks() const
