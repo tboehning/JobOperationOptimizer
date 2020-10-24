@@ -112,6 +112,8 @@ void OptimizerGrouping::after_grouping()
 				try_to_move_operation_to_group_below(indexCurrentGroup, indexCurrentOperation);
 			}
 		}
+
+		try_to_move_group_below(indexCurrentGroup);
 	}
 
 	Debug::function_exit(__FUNCTION__);
@@ -187,6 +189,36 @@ void OptimizerGrouping::try_to_move_operation_to_group_below(const int &indexgro
 				break;
 			}
 		}
+	}
+
+	Debug::function_exit(__FUNCTION__);
+}
+
+void OptimizerGrouping::try_to_move_group_below(const int &indexgroup)
+{
+	Debug::function_start(__FUNCTION__);
+
+	int lowestPositionPossible = operationsGroups.size() - 1;
+
+	for (int indexOperation = operationsGroups[indexgroup].get_operations().size() - 1; indexOperation >= 0; --indexOperation) {
+		for (int indexGroup = indexgroup + 1; indexGroup <= operationsGroups.size() - 1; ++indexGroup) {
+			for (int indexOperationGroupBelow = 0; indexOperationGroupBelow <= operationsGroups[indexGroup].get_operations().size() - 1; ++indexOperationGroupBelow) {
+				if (operationsGroups[indexGroup].get_operations()[indexOperationGroupBelow] > operationsGroups[indexgroup].get_operations()[indexOperation]) {
+					lowestPositionPossible = std::min(lowestPositionPossible, indexGroup - 1);
+				}
+				if (lowestPositionPossible == indexgroup) { break; }
+			}
+			if (lowestPositionPossible == indexgroup) { break; }
+		}
+		if (lowestPositionPossible == indexgroup) { break; }
+	}
+
+	// TODO: New function
+	if (lowestPositionPossible > indexgroup) {
+		OperationsGroup group = operationsGroups[indexgroup];
+
+		operationsGroups.erase(operationsGroups.begin() + indexgroup);
+		operationsGroups.insert(operationsGroups.begin() + lowestPositionPossible, group);
 	}
 
 	Debug::function_exit(__FUNCTION__);

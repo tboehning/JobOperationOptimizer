@@ -21,6 +21,9 @@ private:
 	DecisionStackList decisionStacks;
 
 	int amountOfOperations;
+	int optimalAmountOfOperations;
+
+	std::mutex mutex;
 
 	void append_decisionstack_for_job(const Job &job);
 

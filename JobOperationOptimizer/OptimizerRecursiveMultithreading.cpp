@@ -2,6 +2,7 @@
 
 OptimizerRecursiveMultithreading::OptimizerRecursiveMultithreading()
 {
+	optimalAmountOfOperations = INT_MAX;
 
 	amountOfOperations = 0;
 }
@@ -22,26 +23,25 @@ Permutation OptimizerRecursiveMultithreading::optimize_toolchanges()
 
 Permutation OptimizerRecursiveMultithreading::get_best_permutation_for_toolchanges_from_subtree(Permutation permutationparent, DecisionStackList currentDecisionStackList, const int &indexstack)
 {
-	// TODO: Simple Bounding
-
 	permutationparent.append_operation(currentDecisionStackList.pop_and_get_operation_from_stack(indexstack));
 
-	if (currentDecisionStackList.get_decision_stacks().empty()) {
-		return permutationparent;
-	}
-	else {
-		std::vector<Permutation> permutationsFromSubtrees;
-
-		for (int i = 0; i <= currentDecisionStackList.get_amount_of_stacks() - 1; ++i) {
-			permutationsFromSubtrees.push_back(get_best_permutation_for_toolchanges_from_subtree(permutationparent, currentDecisionStackList, i));
+	if (permutationparent.calculate_tool_changes() <= optimalAmountOfOperations) {
+		if (currentDecisionStackList.get_decision_stacks().empty()) {
+			return permutationparent;
 		}
+		else {
+			std::vector<Permutation> permutationsFromSubtrees;
 
-		return find_best_permutation_for_toolchanges_from_permutations(permutationsFromSubtrees);
+			for (int i = 0; i <= currentDecisionStackList.get_amount_of_stacks() - 1; ++i) {
+				permutationsFromSubtrees.push_back(get_best_permutation_for_toolchanges_from_subtree(permutationparent, currentDecisionStackList, i));
+			}
+
+			return find_best_permutation_for_toolchanges_from_permutations(permutationsFromSubtrees);
+		}
 	}
-	/*}
 	else {
 		return Permutation(amountOfOperations);
-	}*/
+	}
 }
 
 Permutation OptimizerRecursiveMultithreading::find_best_permutation_for_toolchanges_from_permutations(std::vector<Permutation> &permutations)
@@ -75,6 +75,16 @@ Permutation OptimizerRecursiveMultithreading::find_best_permutation_for_toolchan
 			}
 		}
 	}
+
+	{
+		std::lock_guard<std::mutex> lockGuard(mutex);
+
+		if (bestPermutation.get_amount_of_operations() == amountOfOperations
+			&& bestPermutation.calculate_tool_changes() < optimalAmountOfOperations) {
+			optimalAmountOfOperations = bestPermutation.calculate_tool_changes();
+		}
+	}
+	
 
 	return bestPermutation;
 }

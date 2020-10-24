@@ -35,6 +35,7 @@ private:
 	bool has_group_with_same_toolnumber_below(const int &indexgroup) const;
 	bool dependencies_between_old_and_new_position_for_joboperation(const int &indexoldgroup, const int &indexoperation, const int &indexnewgroup) const;
 	void try_to_move_operation_to_group_below(const int &indexoldgroup, const int &indexoperation);
+	void try_to_move_group_below(const int &indexgroup);
 	void move_operation_to_group(const int &indexoldgroup, const int &indexoperation, const int &indexnewgroup);
 	void delete_group_if_empty(const int &indexgroup);
 };

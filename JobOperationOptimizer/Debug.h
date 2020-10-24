@@ -4,9 +4,10 @@
 #include <string>
 
 namespace Debug {
+	#define NDEBUG
 
 	#ifndef NDEBUG
-		#define DEBUG_LEVEL 2	
+		#define DEBUG_LEVEL 0
 	#endif
 
 	void function_start(const char *functionname);
