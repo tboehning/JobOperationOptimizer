@@ -11,14 +11,10 @@ void OptimizerGrouping::append_ordered_joblist(const JobList &joblist)
 
 void OptimizerGrouping::optimize_toolchanges()
 {
-	for (int i = 0; i <= jobLists.size() - 1; ++i) {
+	init_groups(jobLists[0]);
+
+	for (int i = 1; i <= jobLists.size() - 1; ++i) {
 		firstInsertionPointFound = false;
-
-		if (i == 0) {
-			init_groups(jobLists[i]);
-
-			continue;
-		}
 
 		add_joblist_to_list(jobLists[i]);
 	}
@@ -118,6 +114,7 @@ void OptimizerGrouping::add_new_group_at_end(const JobOperation &operation)
 
 	operationsGroups.push_back(group);
 }
+
 
 void OptimizerGrouping::after_grouping(std::vector<OperationsGroup> &groups, const int &lowestlimitgroup)
 {
