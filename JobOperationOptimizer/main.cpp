@@ -17,6 +17,11 @@ int main() {
 	Misc::fill_joblist1_job3(job13);
 	Misc::fill_joblist1_job4(job14);
 
+	/*Misc::l1j1(job11);
+	Misc::l1j2(job12);
+	Misc::l1j3(job13);
+	Misc::l1j4(job14);*/
+
 	JobList list1;
 	list1.append_job(job11);
 	list1.append_job(job12);
@@ -33,6 +38,11 @@ int main() {
 	Misc::fill_joblist2_job2(job22);
 	Misc::fill_joblist2_job3(job23);
 	Misc::fill_joblist2_job4(job24);
+
+	/*Misc::l2j1(job21);
+	Misc::l2j2(job22);
+	Misc::l2j3(job23);
+	Misc::l2j4(job24);*/
 
 	JobList list2;
 	list2.append_job(job21);
@@ -90,11 +100,8 @@ int main() {
 		optimizer.append_ordered_joblist(list3);
 
 		optimizer.optimize_toolchanges();
-		optimizer.print_groups();
 
 	#endif
-
-
 
 	auto finish = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> elapsed = finish - start;
