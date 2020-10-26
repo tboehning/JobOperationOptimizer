@@ -23,7 +23,7 @@ void OptimizerGrouping::optimize_toolchanges()
 		add_joblist_to_list(jobLists[i]);
 	}
 
-	after_grouping(operationsGroups);
+	after_grouping(operationsGroups, INT_MAX);
 	currentBestSolution = operationsGroups;
 
 	after_optimizing();
@@ -119,8 +119,7 @@ void OptimizerGrouping::add_new_group_at_end(const JobOperation &operation)
 	operationsGroups.push_back(group);
 }
 
-
-void OptimizerGrouping::after_grouping(std::vector<OperationsGroup> &groups, const bool &trytomovegroupbelow)
+void OptimizerGrouping::after_grouping(std::vector<OperationsGroup> &groups, const int &lowestlimitgroup)
 {
 	for (int indexCurrentGroup = groups.size() - 2; indexCurrentGroup >= 0; --indexCurrentGroup) {
 		OperationsGroup currentGroup = groups[indexCurrentGroup];
@@ -131,9 +130,7 @@ void OptimizerGrouping::after_grouping(std::vector<OperationsGroup> &groups, con
 			}
 		}
 
-		if (trytomovegroupbelow) {
-			try_to_move_group_below(groups, indexCurrentGroup);
-		}
+		try_to_move_group_below(groups, indexCurrentGroup, lowestlimitgroup);
 	}
 }
 
@@ -156,7 +153,7 @@ void OptimizerGrouping::after_optimizing()
 					operationsGroupsAlternativeSolution.insert(operationsGroupsAlternativeSolution.begin() + LOWEST_POSITION_POSSIBLE, newGroup);
 					operationsGroupsAlternativeSolution[indexGroup].erase_operation(indexOperation);
 
-					after_grouping(operationsGroupsAlternativeSolution, false);
+					after_grouping(operationsGroupsAlternativeSolution, LOWEST_POSITION_POSSIBLE);
 
 					if (operationsGroupsAlternativeSolution.size() < currentBestSolution.size()) {
 						currentBestSolution = operationsGroupsAlternativeSolution;
@@ -221,7 +218,7 @@ void OptimizerGrouping::try_to_move_operation_to_group_below(std::vector<Operati
 	}
 }
 
-void OptimizerGrouping::try_to_move_group_below(std::vector<OperationsGroup> &groups, const int &indexgroup)
+void OptimizerGrouping::try_to_move_group_below(std::vector<OperationsGroup> &groups, const int &indexgroup, const int &lowestlimitgroup)
 {
 	int lowestPositionPossible = groups.size();
 
@@ -231,7 +228,7 @@ void OptimizerGrouping::try_to_move_group_below(std::vector<OperationsGroup> &gr
 		if (lowestPositionPossible <= indexgroup + 1) { break; }
 	}
 
-	if (lowestPositionPossible > indexgroup + 1) {
+	if (lowestPositionPossible > indexgroup + 1 && lowestPositionPossible < lowestlimitgroup) {
 		OperationsGroup group = groups[indexgroup];
 
 		groups.insert(groups.begin() + lowestPositionPossible, group);
