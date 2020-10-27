@@ -17,6 +17,8 @@ public:
 	std::vector<JobOperation> get_operations() const;
 	int get_toolnumber() const;
 
+	long long get_amount_of_operations() const;
+
 	void print_group() const;
 
 	void operator=(const OperationsGroup &group);

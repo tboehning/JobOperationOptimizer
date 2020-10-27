@@ -30,6 +30,11 @@ int OperationsGroup::get_toolnumber() const
     return toolNumber;
 }
 
+long long OperationsGroup::get_amount_of_operations() const
+{
+    return operations.size();
+}
+
 void OperationsGroup::print_group() const
 {
     printf("*** OPERATIONS GROUP ***\n");

@@ -63,9 +63,6 @@
     <ClCompile Include="OptimizerGreedy.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Dropbox\Freelancing\Programmierung\C++\Debug Class\Debug.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="OptimizerRecursiveMultithreading.cpp">
       <Filter>Quelldateien\Optimizer</Filter>
     </ClCompile>
@@ -74,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="OperationsGroup.cpp">
       <Filter>Quelldateien\Optimization Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationsGroupList.cpp">
+      <Filter>Quelldateien\Optimization Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="BackwardGrouper.cpp">
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="OperationsGroup.h">
       <Filter>Headerdateien\Optimization Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationsGroupList.h">
+      <Filter>Headerdateien\Optimization Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="BackwardGrouper.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

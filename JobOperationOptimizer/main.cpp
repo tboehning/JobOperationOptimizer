@@ -95,9 +95,9 @@ int main() {
 	#ifdef GROUP
 		OptimizerGrouping optimizer;
 
-		optimizer.append_ordered_joblist(list1);
-		optimizer.append_ordered_joblist(list2);
-		//optimizer.append_ordered_joblist(list3);
+		optimizer.append_joblist(list1);
+		optimizer.append_joblist(list2);
+		//optimizer.append_joblist(list3);
 
 		optimizer.optimize_toolchanges();
 

@@ -2,23 +2,25 @@
 
 void Debug::function_start(const char *functionname)
 { 
-	#ifndef NDEBUG
-		printf("%s > Start \n", functionname);
-	#endif
+	if (DEBUG_LEVEL > 0) {
+		std::cout << functionname << " > Start\n";
+	}
 }
 
 void Debug::function_exit(const char *functionname)
 {
-	#ifndef NDEBUG
-		printf("%s > Exit \n\n", functionname);
-	#endif
+	if (DEBUG_LEVEL > 0) {
+		std::cout << functionname << " > Exit\n";
+	}
 }
 
-void Debug::function_log(const char *functionname, const char *message)
+void Debug::function_log(const char *functionname, ...)
 {
-	#ifndef NDEBUG
-		if (DEBUG_LEVEL > 1) {
-			printf("%s > Log (Level %i) : %s\n", functionname, DEBUG_LEVEL, message);
-		}
-	#endif
+	va_list arguments;
+	va_start(arguments, functionname);
+
+	if (DEBUG_LEVEL > 1) {
+		std::cout << functionname << " > Log > " << va_arg(arguments, const char*) << "\n";
+	}
+
 }
