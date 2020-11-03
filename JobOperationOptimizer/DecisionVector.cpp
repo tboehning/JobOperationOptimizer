@@ -7,9 +7,9 @@ void DecisionVector::append_operations_from_job(const Job &job)
 	}
 }
 
-JobOperation DecisionVector::get_operation_at_position(const int &position) const
+const JobOperation* DecisionVector::get_operation_at_position(const int &position) const
 {
-	return decisions[position];
+	return &decisions[position];
 }
 
 int DecisionVector::get_size() const

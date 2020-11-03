@@ -16,9 +16,11 @@ void DecisionVectorList::append_joblist(const JobList &joblist)
 	decisionVectors.push_back(decisionVectorInputJobList);
 }
 
-JobOperation DecisionVectorList::get_operation_at_position(const int &positionvector, const int &position) const
+const JobOperation* DecisionVectorList::get_operation_at_position(const int &positionvector, const int &position) const
 {
-	return decisionVectors[positionvector].get_operation_at_position(position);
+	const JobOperation* operation = decisionVectors[positionvector].get_operation_at_position(position);
+
+	return operation;
 }
 
 int DecisionVectorList::get_amount_of_vectors() const

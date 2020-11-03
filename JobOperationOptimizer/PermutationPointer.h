@@ -14,6 +14,7 @@ public:
 	void append_joblist(const JobList &joblist);
 	void append_job(const Job &job);
 	void append_operation(const JobOperation &operation);
+	void append_operation(const JobOperation *operation);
 
 	int calculate_tool_changes() const;
 	double calculate_toolpath_from_transitions() const;

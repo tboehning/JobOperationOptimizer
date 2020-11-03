@@ -9,7 +9,7 @@
 class JobOperation
 {
 public:
-	const char* name;
+	std::string name;
 	short listNumber;
 	short jobNumber;
 	short operationNumber;
@@ -18,7 +18,7 @@ public:
 	Vector endPosition;
 
 	JobOperation();
-	JobOperation(const char* name, const short &listnumber, const short &jobnumber, const short &operationnumber, const short &toolnumber,
+	JobOperation(const std::string name, const short &listnumber, const short &jobnumber, const short &operationnumber, const short &toolnumber,
 		const Vector &startposition, const Vector &endposition);
 
 	bool operator==(const JobOperation &operation) const;

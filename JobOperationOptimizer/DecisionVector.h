@@ -8,7 +8,7 @@ class DecisionVector
 public:
 	void append_operations_from_job(const Job &job);
 
-	JobOperation get_operation_at_position(const int &position) const;
+	const JobOperation* get_operation_at_position(const int &position) const;
 
 	int get_size() const;
 

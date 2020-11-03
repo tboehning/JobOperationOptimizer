@@ -9,7 +9,7 @@ public:
 	void append_decision_vector(const DecisionVector &vector);
 	void append_joblist(const JobList &joblist);
 
-	JobOperation get_operation_at_position(const int &positionvector, const int &position) const;
+	const JobOperation* get_operation_at_position(const int &positionvector, const int &position) const;
 
 	int get_amount_of_vectors() const;
 

@@ -39,6 +39,11 @@ void PermutationPointer::append_operation(const JobOperation &operation)
 	operations.push_back(operationPointer);
 }
 
+void PermutationPointer::append_operation(const JobOperation *operation)
+{
+	operations.push_back(operation);
+}
+
 int PermutationPointer::calculate_tool_changes() const
 {
 	unsigned int numberOfToolChanges = 0;
