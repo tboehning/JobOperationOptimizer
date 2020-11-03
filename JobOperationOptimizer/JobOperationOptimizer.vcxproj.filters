@@ -31,6 +31,18 @@
     <Filter Include="Headerdateien\Optimization Structures">
       <UniqueIdentifier>{2e5d69dc-07fb-40ee-9a6d-48e9658f0c1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Optimization Structures\DecisionStacks">
+      <UniqueIdentifier>{5a21547a-5771-4949-8cfa-f1b5325f8d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Optimization Structures\DecisionStacks">
+      <UniqueIdentifier>{811f3036-aeb5-4229-9b2b-86e596aed1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Optimization Structures\DecisionVectors">
+      <UniqueIdentifier>{d14bc744-1784-481e-9f27-0cb98580000d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Optimization Structures\DecisionVector">
+      <UniqueIdentifier>{1d7ded01-fb23-4011-8e23-8c044b7dd387}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,12 +59,6 @@
     </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>Quelldateien\Joblist</Filter>
-    </ClCompile>
-    <ClCompile Include="DecisionStack.cpp">
-      <Filter>Quelldateien\Optimization Structures</Filter>
-    </ClCompile>
-    <ClCompile Include="DecisionStackList.cpp">
-      <Filter>Quelldateien\Optimization Structures</Filter>
     </ClCompile>
     <ClCompile Include="Permutation.cpp">
       <Filter>Quelldateien\Optimization Structures</Filter>
@@ -81,6 +87,21 @@
     <ClCompile Include="BackwardGrouper.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="DecisionStack.cpp">
+      <Filter>Quelldateien\Optimization Structures\DecisionStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionStackList.cpp">
+      <Filter>Quelldateien\Optimization Structures\DecisionStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionVector.cpp">
+      <Filter>Quelldateien\Optimization Structures\DecisionVector</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionVectorList.cpp">
+      <Filter>Quelldateien\Optimization Structures\DecisionVector</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimizerRecursiveOptimized.cpp">
+      <Filter>Quelldateien\Optimizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Job.h">
@@ -94,12 +115,6 @@
     </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Headerdateien\Joblist</Filter>
-    </ClInclude>
-    <ClInclude Include="DecisionStack.h">
-      <Filter>Headerdateien\Optimization Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="DecisionStackList.h">
-      <Filter>Headerdateien\Optimization Structures</Filter>
     </ClInclude>
     <ClInclude Include="Permutation.h">
       <Filter>Headerdateien\Optimization Structures</Filter>
@@ -130,6 +145,21 @@
     </ClInclude>
     <ClInclude Include="BackwardGrouper.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionStack.h">
+      <Filter>Headerdateien\Optimization Structures\DecisionStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionStackList.h">
+      <Filter>Headerdateien\Optimization Structures\DecisionStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionVector.h">
+      <Filter>Headerdateien\Optimization Structures\DecisionVectors</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionVectorList.h">
+      <Filter>Headerdateien\Optimization Structures\DecisionVectors</Filter>
+    </ClInclude>
+    <ClInclude Include="OptimizerRecursiveOptimized.h">
+      <Filter>Headerdateien\Optimizer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

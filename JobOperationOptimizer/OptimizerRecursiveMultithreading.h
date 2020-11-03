@@ -5,6 +5,7 @@
 #include <mutex>
 
 #include "DecisionStackList.h"
+#include "Permutation.h"
 
 class OptimizerRecursiveMultithreading
 {

@@ -3,7 +3,7 @@
 
 #include "JobList.h"
 #include "DecisionStackList.h"
-#include "Debug.h"
+#include "Permutation.h"
 
 class OptimizerGreedy
 {

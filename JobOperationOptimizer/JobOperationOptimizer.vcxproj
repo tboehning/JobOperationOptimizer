@@ -143,6 +143,8 @@
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DecisionStack.cpp" />
     <ClCompile Include="DecisionStackList.cpp" />
+    <ClCompile Include="DecisionVector.cpp" />
+    <ClCompile Include="DecisionVectorList.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="JobList.cpp" />
     <ClCompile Include="JobOperation.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="OptimizerGrouping.cpp" />
     <ClCompile Include="OptimizerRecursive.cpp" />
     <ClCompile Include="OptimizerRecursiveMultithreading.cpp" />
+    <ClCompile Include="OptimizerRecursiveOptimized.cpp" />
     <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -161,6 +164,8 @@
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DecisionStack.h" />
     <ClInclude Include="DecisionStackList.h" />
+    <ClInclude Include="DecisionVector.h" />
+    <ClInclude Include="DecisionVectorList.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="JobList.h" />
     <ClInclude Include="JobOperation.h" />
@@ -171,6 +176,7 @@
     <ClInclude Include="OptimizerGrouping.h" />
     <ClInclude Include="OptimizerRecursive.h" />
     <ClInclude Include="OptimizerRecursiveMultithreading.h" />
+    <ClInclude Include="OptimizerRecursiveOptimized.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

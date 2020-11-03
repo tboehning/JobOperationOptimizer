@@ -2,10 +2,8 @@
 #define DECISIONSTACKLIST_H_
 
 #include <vector>
-#include <set>
 
 #include "DecisionStack.h"
-#include "Permutation.h"
 
 class DecisionStackList
 {

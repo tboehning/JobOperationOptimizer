@@ -1,5 +1,6 @@
 #include "Misc.h"
 #include "OptimizerRecursive.h"
+#include "OptimizerRecursiveOptimized.h"
 #include "OptimizerRecursiveMultithreading.h"
 #include "OptimizerGreedy.h"
 #include "OptimizerGrouping.h"
@@ -12,15 +13,15 @@ int main() {
 	Job job13(3, "Bohren und Gewinde 1");
 	Job job14(4, "Bohren und Gewinde 2");
 
-	/*Misc::fill_joblist1_job1(job11);
+	Misc::fill_joblist1_job1(job11);
 	Misc::fill_joblist1_job2(job12);
 	Misc::fill_joblist1_job3(job13);
-	Misc::fill_joblist1_job4(job14);*/
+	Misc::fill_joblist1_job4(job14);
 
-	Misc::l1j1(job11);
+	/*Misc::l1j1(job11);
 	Misc::l1j2(job12);
 	Misc::l1j3(job13);
-	Misc::l1j4(job14);
+	Misc::l1j4(job14);*/
 
 	JobList list1;
 	list1.append_job(job11);
@@ -34,15 +35,15 @@ int main() {
 	Job job23(3, "Bohren und Gewinde 1 2");
 	Job job24(4, "Bohren und Gewinde 2 2");
 
-	/*Misc::fill_joblist2_job1(job21);
+	Misc::fill_joblist2_job1(job21);
 	Misc::fill_joblist2_job2(job22);
 	Misc::fill_joblist2_job3(job23);
-	Misc::fill_joblist2_job4(job24);*/
+	Misc::fill_joblist2_job4(job24);
 
-	Misc::l2j1(job21);
+	/*Misc::l2j1(job21);
 	Misc::l2j2(job22);
 	Misc::l2j3(job23);
-	Misc::l2j4(job24);
+	Misc::l2j4(job24);*/
 
 	JobList list2;
 	list2.append_job(job21);
@@ -71,7 +72,7 @@ int main() {
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	#define GROUP
+	#define OPTIMIZED
 
 	#ifdef MULTI
 		OptimizerRecursiveMultithreading optimizer;
@@ -91,6 +92,17 @@ int main() {
 
 		optimizer.optimize_toolchanges();
 	#endif
+
+	#ifdef OPTIMIZED
+		OptimizerRecursiveOptimized optimizer;
+		optimizer.append_joblist(list1);
+		optimizer.append_joblist(list2);
+		optimizer.append_joblist(list3);
+
+		optimizer.optimize_toolchanges();
+	#endif
+
+
 
 	#ifdef GROUP
 		OptimizerGrouping optimizer;

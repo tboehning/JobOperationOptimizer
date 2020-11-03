@@ -76,17 +76,17 @@ namespace Misc {
 	void fill_joblist3_job3(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren L3 J3", 3, JOB_NUMBER, 1, 3, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(65.1 + OFFSET_X * 2, 0.0, 421.0)));
-		job.append_operation(JobOperation("Senken L3 J3", 3, JOB_NUMBER, 2, 4, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(52.2 + OFFSET_X * 2, 567.1, 65.1)));
-		job.append_operation(JobOperation("Gewindebohren L3 J3", 3, JOB_NUMBER, 3, 5, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(12.67 + OFFSET_X * 2, 75.1, 89.1)));
+		////job.append_operation(JobOperation("Bohren L3 J3", 3, JOB_NUMBER, 1, 3, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(65.1 + OFFSET_X * 2, 0.0, 421.0)));
+		////job.append_operation(JobOperation("Senken L3 J3", 3, JOB_NUMBER, 2, 4, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(52.2 + OFFSET_X * 2, 567.1, 65.1)));
+		////job.append_operation(JobOperation("Gewindebohren L3 J3", 3, JOB_NUMBER, 3, 5, Vector(54.1 + OFFSET_X * 2, 1.64, 12.54), Vector(12.67 + OFFSET_X * 2, 75.1, 89.1)));
 	}
 
 	void fill_joblist3_job4(Job &job) {
 		const int JOB_NUMBER = job.number;
 
-		job.append_operation(JobOperation("Bohren L3 J4", 3, JOB_NUMBER, 1, 3, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(853.123 + OFFSET_X * 2, 123.1, 588.9)));
-		job.append_operation(JobOperation("Senken L3 J4", 3, JOB_NUMBER, 2, 4, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(534.12 + OFFSET_X * 2, 122.0, 566.64)));
-		job.append_operation(JobOperation("Gewindebohren L3 J4", 3, JOB_NUMBER, 3, 5, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(104.13 + OFFSET_X * 2, 172.0, 51.64)));
+		////job.append_operation(JobOperation("Bohren L3 J4", 3, JOB_NUMBER, 1, 3, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(853.123 + OFFSET_X * 2, 123.1, 588.9)));
+		////job.append_operation(JobOperation("Senken L3 J4", 3, JOB_NUMBER, 2, 4, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(534.12 + OFFSET_X * 2, 122.0, 566.64)));
+		////job.append_operation(JobOperation("Gewindebohren L3 J4", 3, JOB_NUMBER, 3, 5, Vector(321.2 + OFFSET_X * 2, 789.1, 437.1), Vector(104.13 + OFFSET_X * 2, 172.0, 51.64)));
 	}
 
 	//////////////////////////////////// NEW EXAMPLE
