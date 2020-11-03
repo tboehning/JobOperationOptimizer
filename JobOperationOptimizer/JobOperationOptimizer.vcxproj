@@ -157,6 +157,7 @@
     <ClCompile Include="OptimizerRecursiveMultithreading.cpp" />
     <ClCompile Include="OptimizerRecursiveOptimized.cpp" />
     <ClCompile Include="Permutation.cpp" />
+    <ClCompile Include="PermutationPointer.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="OptimizerRecursiveMultithreading.h" />
     <ClInclude Include="OptimizerRecursiveOptimized.h" />
     <ClInclude Include="Permutation.h" />
+    <ClInclude Include="PermutationPointer.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

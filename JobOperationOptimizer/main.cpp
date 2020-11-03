@@ -72,7 +72,7 @@ int main() {
 
 	auto start = std::chrono::high_resolution_clock::now();
 
-	#define OPTIMIZED
+	#define GROUP
 
 	#ifdef MULTI
 		OptimizerRecursiveMultithreading optimizer;
@@ -101,8 +101,6 @@ int main() {
 
 		optimizer.optimize_toolchanges();
 	#endif
-
-
 
 	#ifdef GROUP
 		OptimizerGrouping optimizer;

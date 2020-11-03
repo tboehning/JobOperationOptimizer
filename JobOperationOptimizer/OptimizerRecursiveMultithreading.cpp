@@ -100,7 +100,6 @@ std::vector<Permutation> OptimizerRecursiveMultithreading::get_all_future_permut
 	return gottenPermutations;
 }
 
-
 void OptimizerRecursiveMultithreading::append_joblist(const JobList &joblist)
 {
 	amountOfOperations += joblist.get_amount_of_operations();
@@ -113,7 +112,6 @@ void OptimizerRecursiveMultithreading::append_joblist(const JobList &joblist)
 
 	decisionStacks.append_decision_stack_initial(decisionStackInputJobList);
 }
-
 
 void OptimizerRecursiveMultithreading::print_decision_stacks() const
 {

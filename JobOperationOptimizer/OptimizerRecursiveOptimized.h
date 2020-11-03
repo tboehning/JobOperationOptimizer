@@ -2,7 +2,9 @@
 #define OPTIMIZERRECURSIVEOPTIMIZED_H_
 
 #include "DecisionVectorList.h"
-#include "Permutation.h"
+#include "PermutationPointer.h"
+
+#include <future>
 
 class OptimizerRecursiveOptimized
 {
@@ -23,10 +25,12 @@ private:
 	int optimalAmountOfToolChanges;
 	double optimalLengthToolTransitions;
 
+	std::mutex updateOptimalValuesMutex;
+
 	int amountOfOperations;
 
-	void check_node_toolchanges(Permutation permutationparent, std::vector<unsigned short> vectorpositions, const int &indexvector);
-	void evaluate_leaf_toolchanges(const Permutation &permutation);
+	void check_node_toolchanges(PermutationPointer permutationparent, std::vector<unsigned short> vectorpositions, const int &indexvector);
+	void evaluate_leaf_toolchanges(const PermutationPointer &permutation);
 
 	bool next_decision_possible(const std::vector<unsigned short> &vectorpositions) const;
 };

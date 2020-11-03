@@ -3,12 +3,13 @@
 JobOperation::JobOperation()
 {
 	name = "";
+	listNumber = 0;
 	jobNumber = 0;
 	operationNumber = 0;
 	toolNumber = 0;
 }
 
-JobOperation::JobOperation(const std::string &name, const short &listnumber, const short &jobnumber, const short &operationnumber, const short &toolnumber, const Vector &startposition, const Vector &endposition) :
+JobOperation::JobOperation(const char* name, const short &listnumber, const short &jobnumber, const short &operationnumber, const short &toolnumber, const Vector &startposition, const Vector &endposition) :
 	name(name), listNumber(listnumber), jobNumber(jobnumber), operationNumber(operationnumber), toolNumber(toolnumber), startPosition(startposition), endPosition(endposition)
 { }
 
